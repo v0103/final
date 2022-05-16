@@ -33,8 +33,10 @@ void Traverse();/*Print all items in the database in a specific format.*/
 void Search();/*Given certain information about the item, the program needs to find and print the
 specific item*/
 
-void Sort(struct item *head,int data,int dir);/*Sort all the items in ascending or descending order according to the given data. For
+void Sort(struct item **headref,int data,int dir);/*Sort all the items in ascending or descending order according to the given data. For
 example, you can sort products by their prices or expired dates*/
+
+void Spilt(struct item *head,struct item **front,struct item **back)
 
 int main()
 {
@@ -66,6 +68,38 @@ void Search(){
 
 }
 
-void Sort(struct item *head,int data,int dir){
-        
+void Sort(struct item **headref,int data,int dir){
+   struct item *head=*headref;
+   struct item *a;
+   struct item *b;
+   
+   if(head==NULL||head->next==NULL){
+       return;
+   }
+   
+   Spilt(head,&a,&b);
+    
+   Sort(&a);
+   Sort(&b); 
+    
+    
+}
+
+void Spilt(struct item *head,struct item **front,struct item **back){
+    struct item *slow;
+    struct item *fast;
+    slow=head;
+    fast=head->next;
+    
+    while(fast!=NULL){
+        fast=fast->next;
+        if(fast!=NULL){
+            slow=slow->next;
+            fast=fast->next;
+        }
+    }
+    
+    *front=head;
+    *back=slow->next;
+    slow->next=NULL;
 }
