@@ -67,22 +67,5 @@ void Search(){
 }
 
 void Sort(struct item *head,int data,int dir){
-        int swapped; 
-        struct item *p; 
-        struct item *lastptr = NULL; 
-  
-        // Check for empty list    
-        do{ 
-                swapped = 0; 
-                p = head; 
-                while (p->next != lastptr) { //check if the last second node
-                        if (p->data > p->next->data){  
-                        swap(p, p->next); 
-                        swapped = 1; 
-                        } 
-                        p = p->next; //move to next node
-                } 
-                lastptr = p; //update the last node
-        } 
-        while (swapped);//check if swap happened
+        
 }
