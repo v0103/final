@@ -33,7 +33,7 @@ void Traverse();/*Print all items in the database in a specific format.*/
 void Search();/*Given certain information about the item, the program needs to find and print the
 specific item*/
 
-void Sort(struct item **headref,int data,int dir);/*Sort all the items in ascending or descending order according to the given data. For
+void Sort(struct item *head,int data,int dir);/*Sort all the items in ascending or descending order according to the given data. For
 example, you can sort products by their prices or expired dates*/
 
 void swap(struct item *previous,struct item *a,struct item *b); /*swap two nodes*/
