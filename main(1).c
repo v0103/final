@@ -36,7 +36,7 @@ specific item*/
 void Sort(struct item **headref,int data,int dir);/*Sort all the items in ascending or descending order according to the given data. For
 example, you can sort products by their prices or expired dates*/
 
-void Spilt(struct item *head,struct item **front,struct item **back)
+void swap(struct item *previous,struct item *a,struct item *b); /*swap two nodes*/
 
 int main()
 {
@@ -68,58 +68,98 @@ void Search(){
 
 }
 
-void Sort(struct item **headref,int data,int dir){
-   struct item *head=*headref;
-   struct item *a;
-   struct item *b;
-   
-   if(head==NULL||head->next==NULL){
-       return;
-   }
-   
-   Spilt(head,&a,&b);
+void Sort(struct item *head,int data,int dir)
+{
+    int swapped=0;
+    struct item *pre=NULL;
+    struct item *now;
+    struct item *now_next;
+    struct item *lastptr = NULL;
+    struct item *temp;
     
-   Sort(&a);
-   Sort(&b); 
-   
-   *headRef = Sortedmerge(a, b,data);
-}
-
-struct item *Sortedmerge(struct item *a,struct item *b,int data){
-    struct item *res=NULL;
-    if(a==NULL){
-        return(b);
-    }
-    else if(b==NULL){
-        return(a);
-    }
-    
-    if (a->data <= b->data) {
-        res=a;
-        res->next = Sortedmerge(a->next, b);
-    }
-    else {
-        res=b;
-        res->next = Sortedmerge(a, b->next);
-    }
-    return (res);
-}
-
-void Spilt(struct item *head,struct item **front,struct item **back){
-    struct item *slow;
-    struct item *fast;
-    slow=head;
-    fast=head->next;
-    
-    while(fast!=NULL){
-        fast=fast->next;
-        if(fast!=NULL){
-            slow=slow->next;
-            fast=fast->next;
+    if(strcmp(dir,"descending")==0)  //sort with descending
+    {
+        if (head == NULL) //check if the list is empty
+        {
+            return;
         }
+        do
+        { 
+            swapped = 0;
+            pre = NULL;
+            now = head;
+            now_next = now->next;
+            while (now_next != lastptr) //check if the non swapped last node
+            { 
+                if (now->data < now_next->data)
+                {  
+                    swap(pre, now, now_next); 
+                    swapped = 1; //swap happened
+                    temp = now; //change swapped node pointer
+                    now = now_next;
+                    now_next = temp;
+                    if(pre==NULL)  //change head point to new one
+                    { 
+                        head = p;
+                    } 
+                }
+                pre = now;  //move to next node
+                now = now_next; 
+                now_next = now_next->next;
+            } 
+            lastptr = now_next; //update the last node
+        } 
+        while (swapped);  //check if swap happened
     }
-    
-    *front=head;
-    *back=slow->next;
-    slow->next=NULL;
+    else if(strcmp(dir,"ascending")==0) //sort with ascending
+    {
+        if (head == NULL) //check if the list is empty
+        {
+            return;
+        }
+        do
+        { 
+            swapped = 0;
+            pre = NULL;
+            now = head;
+            now_next = now->next;
+            while (now_next != lastptr) //check if the non swapped last node
+            { 
+                if (now->data > now_next->data)
+                {  
+                    swap(pre, now, now_next); 
+                    swapped = 1; //swap happened
+                    temp = now; //change swapped node pointer
+                    now = now_next;
+                    now_next = temp;
+                    if(pre==NULL)  //change head point to new one
+                    { 
+                        head = p;
+                    } 
+                }
+                pre = now;  //move to next node
+                now = now_next; 
+                now_next = now_next->next;
+            } 
+            lastptr = now_next; //update the last node
+        } 
+        while (swapped);  //check if swap happened
+    }
 }
+
+void swap(struct item *previous,struct item *a,struct item *b) 
+{
+    if(previous == NULL) //which we want to swap have head node
+    {
+        a->next = b->next;
+        b->next = a;
+    }
+    else
+    {
+        previous->next = b;
+        a->next = b->next;
+        b->next = a;
+    }
+}
+
+
