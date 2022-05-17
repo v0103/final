@@ -81,8 +81,28 @@ void Sort(struct item **headref,int data,int dir){
     
    Sort(&a);
    Sort(&b); 
+   
+   *headRef = Sortedmerge(a, b,data);
+}
+
+struct item *Sortedmerge(struct item *a,struct item *b,int data){
+    struct item *res=NULL;
+    if(a==NULL){
+        return(b);
+    }
+    else if(b==NULL){
+        return(a);
+    }
     
-    
+    if (a->data <= b->data) {
+        res=a;
+        res->next = Sortedmerge(a->next, b);
+    }
+    else {
+        res=b;
+        res->next = Sortedmerge(a, b->next);
+    }
+    return (res);
 }
 
 void Spilt(struct item *head,struct item **front,struct item **back){
