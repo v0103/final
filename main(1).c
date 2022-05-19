@@ -76,21 +76,20 @@ void Sort(struct item *head,int data,int dir)
     struct item *now_next;
     struct item *lastptr = NULL;
     struct item *temp;
-    
-    if(strcmp(dir,"descending")==0)  //sort with descending
+    if (head == NULL) //check if the list is empty
     {
-        if (head == NULL) //check if the list is empty
-        {
-            return;
-        }
-        do
+        return;
+    }
+    do
+    { 
+        swapped = 0;
+        pre = NULL;
+        now = head;
+        now_next = now->next;
+        while (now_next != lastptr) //check if the non swapped last node
         { 
-            swapped = 0;
-            pre = NULL;
-            now = head;
-            now_next = now->next;
-            while (now_next != lastptr) //check if the non swapped last node
-            { 
+            if(strcmp(dir,"descending")==0)  //sort with descending
+            {
                 if (now->data < now_next->data)
                 {  
                     swap(pre, now, now_next); 
@@ -103,28 +102,9 @@ void Sort(struct item *head,int data,int dir)
                         head = p;
                     } 
                 }
-                pre = now;  //move to next node
-                now = now_next; 
-                now_next = now_next->next;
-            } 
-            lastptr = now_next; //update the last node
-        } 
-        while (swapped);  //check if swap happened
-    }
-    else if(strcmp(dir,"ascending")==0) //sort with ascending
-    {
-        if (head == NULL) //check if the list is empty
-        {
-            return;
-        }
-        do
-        { 
-            swapped = 0;
-            pre = NULL;
-            now = head;
-            now_next = now->next;
-            while (now_next != lastptr) //check if the non swapped last node
-            { 
+            }
+            else if(strcmp(dir,"ascending")==0) //sort with ascending
+            {
                 if (now->data > now_next->data)
                 {  
                     swap(pre, now, now_next); 
@@ -137,14 +117,14 @@ void Sort(struct item *head,int data,int dir)
                         head = p;
                     } 
                 }
-                pre = now;  //move to next node
-                now = now_next; 
-                now_next = now_next->next;
-            } 
-            lastptr = now_next; //update the last node
-        } 
-        while (swapped);  //check if swap happened
-    }
+            }
+            pre = now;  //move to next node
+            now = now_next; 
+            now_next = now_next->next;
+         } 
+         lastptr = now_next; //update the last node
+     } 
+     while (swapped);  //check if swap happened
 }
 
 void swap(struct item *previous,struct item *a,struct item *b) 
