@@ -28,6 +28,7 @@ int main(){
     return 0;
 }
 
+/*read and save data*/
 void _READ(){
     FILE *fp;
     fp = fopen(FILE_NAME, "r"); //open file ,r,w,a which one?
@@ -41,6 +42,7 @@ void _READ(){
     fclose(fp); // close file
 }
 
+/*build linked list*/
 struct item* _BUILD(FILE *fp){
     int reb, ast, stl, blk,pts;
     char pos;
@@ -50,6 +52,7 @@ struct item* _BUILD(FILE *fp){
     
     while(fscanf( fp, "%[^\t] %c %s %f %d %d %d %d %d", player, &pos, team, &fg, &reb, &ast, &stl, &blk, &pts)!=EOF ){ //scanf until the end of file
         struct item *node = malloc(sizeof(struct item));                                                               // malloc node
+        
         strcpy(node->total_name, player);                                                                              // save data to struct
         node->POS = pos;
         strcpy(node->team, team);
@@ -60,7 +63,7 @@ struct item* _BUILD(FILE *fp){
         node->BLK = blk;
         node->PTS = pts;
         
-        if(list==NULL){
+        if(list==NULL){                                                                                                 //linked list
             node->next = NULL;
         }
         else{
@@ -71,6 +74,7 @@ struct item* _BUILD(FILE *fp){
     return list;
 }
 
+/*check linked list*/
 /*void _print(struct item*list){
     while(list!=NULL){
         printf("%s %d\n", list->total_name, list->PTS);
