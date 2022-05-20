@@ -1,7 +1,10 @@
-#include<stdio.h>
-#include<stdlib.h>
-#include<string.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include "Search.c"
+#include "Traverse.c"
 
+//basic.h
 basic part
 struct name{
     string first_name;
@@ -21,6 +24,7 @@ struct item{
         string team;
         struct item *next;
 };
+//
 
 void Add();/*Add a new item to the database system. The program must print an error message if
 the item is already in the database.*/
@@ -28,9 +32,9 @@ the item is already in the database.*/
 void Delete();/*Delete a given item from the database. The program must print an error message if
 there is no matching item to be deleted in the database.*/
 
-void Traverse();/*Print all items in the database in a specific format.*/
+/*void Traverse();//Print all items in the database in a specific format.*/
 
-void Search();/*Given certain information about the item, the program needs to find and print the
+/*void Search();//Given certain information about the item, the program needs to find and print the
 specific item*/
 
 void Sort(struct item *head,int data,int dir);/*Sort all the items in ascending or descending order according to the given data. For
@@ -56,13 +60,13 @@ void Add(){
 
 }
 
-void Delete(){
+/*void Delete(){
 
 }
 
 void Traverse(){
 
-}
+}*/
 
 void Search(){
 
