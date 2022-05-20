@@ -4,4 +4,13 @@
 #include "function.h"
 #include "basic.h"
 
+void Add()
+{
+
+}
+
+void Delete()
+{
+
+}
 
