@@ -29,6 +29,7 @@ int main(){
 }
 
 /*read and save data*/
+/*可以考慮把READ函式解放到main*/
 void _READ(){
     FILE *fp;
     fp = fopen(FILE_NAME, "r"); //open file ,r,w,a which one?
