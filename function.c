@@ -153,7 +153,7 @@ void Sort_ascending(struct item *head,char data)
         pre = NULL;
         now = head;
         now_next = now->next;
-        while (now_next != lastptr) {  //check if the non swapped last node
+        while (now_next != lastptr) {  //check if the swapped until last node
         	if (now->data > now_next->data) {  
                     Swap(pre, now, now_next); 
                     swapped = 1; //swap happened
@@ -193,8 +193,6 @@ void Sort_descending(struct item *head,char data)
         now_next = now->next;
         while (now_next != lastptr) //check if the non swapped last node
         { 
-            if(strcmp(dir,"descending")==0)  //sort with descending
-            {
                 if (now->data < now_next->data)
                 {  
                     Swap(pre, now, now_next); 
@@ -207,22 +205,7 @@ void Sort_descending(struct item *head,char data)
                         head = p;
                     } 
                 }
-            }
-            else if(strcmp(dir,"ascending")==0) //sort with ascending
-            {
-                if (now->data > now_next->data)
-                {  
-                    Swap(pre, now, now_next); 
-                    swapped = 1; //swap happened
-                    temp = now; //change swapped node pointer
-                    now = now_next;
-                    now_next = temp;
-                    if(pre==NULL)  //change head point to new one
-                    { 
-                        head = p;
-                    } 
-                }
-            }
+            
             pre = now;  //move to next node
             now = now_next; 
             now_next = now_next->next;
