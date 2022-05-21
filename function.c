@@ -4,7 +4,7 @@
 #include "function.h"
 #include "basic.h"
 
-void Add()
+void Add(struct item *head, struct item *new)
 {
 
 }
