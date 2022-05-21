@@ -28,7 +28,7 @@ void Add(struct item *head, struct item *new)
     }
 }
 
-void Delete()
+void Delete(struct item *head, struct item *new)
 {
 
 }
