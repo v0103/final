@@ -137,7 +137,7 @@ void Search(struct item **HEAD, char *type, char *goal)
 
 }
 
-void Sort(struct item *head,data,int dir)
+void Sort(struct item *head,char data,int dir)
 {
     int swapped=0;
     struct item *pre=NULL;
