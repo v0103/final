@@ -137,7 +137,43 @@ void Search(struct item **HEAD, char *type, char *goal)
 
 }
 
-void Sort(struct item *head,char data,int dir)
+void Sort_ascending(struct item *head,char data)
+{
+    int swapped=0;
+    struct item *pre=NULL;
+    struct item *now;
+    struct item *now_next;
+    struct item *lastptr = NULL;
+    struct item *temp;
+    if (head == NULL) {  //check if the list is empty
+        return 0;
+    }
+    do { 
+        swapped = 0;
+        pre = NULL;
+        now = head;
+        now_next = now->next;
+        while (now_next != lastptr) {  //check if the non swapped last node
+        	if (now->data > now_next->data) {  
+                    Swap(pre, now, now_next); 
+                    swapped = 1; //swap happened
+                    temp = now; //change swapped node pointer
+                    now = now_next;
+                    now_next = temp;
+                    if(pre==NULL) {  //change head point to new one
+                        head = p;
+                    } 
+                }
+		pre = now;  //move to next node
+            	now = now_next; 
+            	now_next = now_next->next;
+	} 
+        lastptr = now_next; //update the last node
+     } 
+     while (swapped);  //check if swap happened
+}
+
+void Sort_descending(struct item *head,char data)
 {
     int swapped=0;
     struct item *pre=NULL;
@@ -198,13 +234,11 @@ void Sort(struct item *head,char data,int dir)
 
 void Swap(struct item *previous,struct item *a,struct item *b) 
 {
-    if(previous == NULL) //which we want to swap have head node
-    {
+    if(previous == NULL) {  //which we want to swap include head node
         a->next = b->next;
         b->next = a;
     }
-    else
-    {
+    else {
         previous->next = b;
         a->next = b->next;
         b->next = a;
