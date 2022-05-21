@@ -26,11 +26,19 @@
   void Search();
 
   /************************************************************************
-   *Sort: Sort all the items in ascending or descending order             *
-   *      according to the given data. For example, you can sort          *
-   *      products by their prices or expired dates.                      *
+   * Sort_ascending: Sort all the items in ascending order according to   *
+   *                 the given data. For example,  you can sort products  *
+   *                 by their prices or expired dates.                    *
    ************************************************************************/
-  void Sort();
+  void Sort_ascending();
+
+  /************************************************************************
+   * Sort_descending: Sort all the items in descending order according to *
+   *                 the given data. For example,  you can sort products  *
+   *                 by their prices or expired dates.                    *
+   ************************************************************************/
+  void Sort_descending();
+
 
   /************************************************************************
    *Swap: Swap two nodes, not only change the data in the node.           *
