@@ -147,7 +147,7 @@ void Sort(struct item *head,char data,int dir)
     struct item *temp;
     if (head == NULL) //check if the list is empty
     {
-        return;
+        return 0;
     }
     do
     { 
