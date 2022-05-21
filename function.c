@@ -137,6 +137,11 @@ void Search(struct item **HEAD, char *type, char *goal)
 
 }
 
+int cmp(a,b)
+{
+	return a.PTS > b.PTS;
+}
+
 void Sort_ascending(struct item *head,char data)
 {
     int swapped=0;
@@ -154,16 +159,80 @@ void Sort_ascending(struct item *head,char data)
         now = head;
         now_next = now->next;
         while (now_next != lastptr) {  //check if the swapped until last node
-        	if (now->data > now_next->data) {  
-                    Swap(pre, now, now_next); 
-                    swapped = 1; //swap happened
-                    temp = now; //change swapped node pointer
-                    now = now_next;
-                    now_next = temp;
-                    if(pre==NULL) {  //change head point to new one
-                        head = p;
-                    } 
-                }
+        	switch(data){
+			case PTS:
+				if (now->PTS > now_next->PTS) {  
+                    			Swap(pre, now, now_next); 
+                    			swapped = 1; //swap happened
+                    			temp = now; //change swapped node pointer
+                    			now = now_next;
+                    			now_next = temp;
+                   			if(pre==NULL) {  //change head point to new one
+                        			head = p;
+                   			} 
+                		}
+				break;
+			case REB:
+				if (now->REB > now_next->REB) {  
+                    			Swap(pre, now, now_next); 
+                    			swapped = 1; //swap happened
+                    			temp = now; //change swapped node pointer
+                    			now = now_next;
+                    			now_next = temp;
+                    			if(pre==NULL) {  //change head point to new one
+                        			head = p;
+                    			} 
+                		}
+				break;
+			case AST:
+				if (now->AST > now_next->AST) {  
+                    			Swap(pre, now, now_next); 
+                    			swapped = 1; //swap happened
+                    			temp = now; //change swapped node pointer
+                    			now = now_next;
+                    			now_next = temp;
+                    			if(pre==NULL) {  //change head point to new one
+                        			head = p;
+                    			} 
+                		}
+				break;
+			case STL:
+				if (now->STL > now_next->STL) {  
+                    			Swap(pre, now, now_next); 
+                    			swapped = 1; //swap happened
+                    			temp = now; //change swapped node pointer
+                    			now = now_next;
+                    			now_next = temp;
+                    			if(pre==NULL) {  //change head point to new one
+                        			head = p;
+                    			} 
+                		}
+				break;
+			case BLK:
+				if (now->BLK > now_next->BLK) {  
+                    			Swap(pre, now, now_next); 
+                    			swapped = 1; //swap happened
+                    			temp = now; //change swapped node pointer
+                    			now = now_next;
+                    			now_next = temp;
+                    			if(pre==NULL) {  //change head point to new one
+                        			head = p;
+                    			} 
+                		}
+				break;
+			case FG:
+				if (now->FG > now_next->FG) {  
+                    			Swap(pre, now, now_next); 
+                    			swapped = 1; //swap happened
+                    			temp = now; //change swapped node pointer
+                    			now = now_next;
+                    			now_next = temp;
+                    			if(pre==NULL) {  //change head point to new one
+                        			head = p;
+                    			} 
+                		}
+				break;
+		}
 		pre = now;  //move to next node
             	now = now_next; 
             	now_next = now_next->next;
@@ -181,36 +250,94 @@ void Sort_descending(struct item *head,char data)
     struct item *now_next;
     struct item *lastptr = NULL;
     struct item *temp;
-    if (head == NULL) //check if the list is empty
-    {
+    if (head == NULL) {  //check if the list is empty
         return 0;
     }
-    do
-    { 
+    do { 
         swapped = 0;
         pre = NULL;
         now = head;
         now_next = now->next;
-        while (now_next != lastptr) //check if the non swapped last node
-        { 
-                if (now->data < now_next->data)
-                {  
-                    Swap(pre, now, now_next); 
-                    swapped = 1; //swap happened
-                    temp = now; //change swapped node pointer
-                    now = now_next;
-                    now_next = temp;
-                    if(pre==NULL)  //change head point to new one
-                    { 
-                        head = p;
-                    } 
-                }
-            
-            pre = now;  //move to next node
-            now = now_next; 
-            now_next = now_next->next;
-         } 
-         lastptr = now_next; //update the last node
+        while (now_next != lastptr) {  //check if the swapped until last node
+        	switch(data){
+			case PTS:
+				if (now->PTS < now_next->PTS) {  
+                    			Swap(pre, now, now_next); 
+                    			swapped = 1; //swap happened
+                    			temp = now; //change swapped node pointer
+                    			now = now_next;
+                    			now_next = temp;
+                   			if(pre==NULL) {  //change head point to new one
+                        			head = p;
+                   			} 
+                		}
+				break;
+			case REB:
+				if (now->REB < now_next->REB) {  
+                    			Swap(pre, now, now_next); 
+                    			swapped = 1; //swap happened
+                    			temp = now; //change swapped node pointer
+                    			now = now_next;
+                    			now_next = temp;
+                    			if(pre==NULL) {  //change head point to new one
+                        			head = p;
+                    			} 
+                		}
+				break;
+			case AST:
+				if (now->AST < now_next->AST) {  
+                    			Swap(pre, now, now_next); 
+                    			swapped = 1; //swap happened
+                    			temp = now; //change swapped node pointer
+                    			now = now_next;
+                    			now_next = temp;
+                    			if(pre==NULL) {  //change head point to new one
+                        			head = p;
+                    			} 
+                		}
+				break;
+			case STL:
+				if (now->STL < now_next->STL) {  
+                    			Swap(pre, now, now_next); 
+                    			swapped = 1; //swap happened
+                    			temp = now; //change swapped node pointer
+                    			now = now_next;
+                    			now_next = temp;
+                    			if(pre==NULL) {  //change head point to new one
+                        			head = p;
+                    			} 
+                		}
+				break;
+			case BLK:
+				if (now->BLK < now_next->BLK) {  
+                    			Swap(pre, now, now_next); 
+                    			swapped = 1; //swap happened
+                    			temp = now; //change swapped node pointer
+                    			now = now_next;
+                    			now_next = temp;
+                    			if(pre==NULL) {  //change head point to new one
+                        			head = p;
+                    			} 
+                		}
+				break;
+			case FG:
+				if (now->FG < now_next->FG) {  
+                    			Swap(pre, now, now_next); 
+                    			swapped = 1; //swap happened
+                    			temp = now; //change swapped node pointer
+                    			now = now_next;
+                    			now_next = temp;
+                    			if(pre==NULL) {  //change head point to new one
+                        			head = p;
+                    			} 
+                		}
+				break;
+		}
+		pre = now;  //move to next node
+            	now = now_next; 
+            	now_next = now_next->next;
+	} 
+        lastptr = now_next; //update the last node
      } 
      while (swapped);  //check if swap happened
 }
