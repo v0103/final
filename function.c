@@ -122,7 +122,7 @@ void Search(struct item **HEAD, char *type, char *goal)
                 search = 1;
                 
                 printf("\nNAME      \tTEAM\tPOS\tPTS\tREB\tAST\tSTL\tBLK\tFG%%\n\n");
-                printf("%-10s\t%3s\t%c\t%.2f\t%.2f\t%.2f\t%.2f\t%.2f\t%.2f\n", temp->total_name, temp->team, temp->POS, temp->PTS, temp->REB, temp->AST, temp->STL, temp->BLK, temp->FG);
+                printf("%-10s\t%3s\t%c\t%d\t%d\t%d\t%d\t%d\t%.2f\n", temp->total_name, temp->team, temp->POS, temp->PTS, temp->REB, temp->AST, temp->STL, temp->BLK, temp->FG);
 
             }
 
@@ -135,11 +135,6 @@ void Search(struct item **HEAD, char *type, char *goal)
         printf("Not Found\n");
     }
 
-}
-
-int cmp(a,b)
-{
-	return a.PTS > b.PTS;
 }
 
 void Sort_ascending(struct item *head,char data)
@@ -171,6 +166,11 @@ void Sort_ascending(struct item *head,char data)
                         			head = p;
                    			} 
                 		}
+				else if (now->PTS == now_next->PTS) {
+					if () {
+					
+					}
+				}
 				break;
 			case REB:
 				if (now->REB > now_next->REB) {  
