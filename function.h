@@ -34,15 +34,19 @@
 
   /************************************************************************
    * Sort_descending: Sort all the items in descending order according to *
-   *                 the given data. For example,  you can sort products  *
-   *                 by their prices or expired dates.                    *
+   *                  the given data. For example,  you can sort products *
+   *                  by their prices or expired dates.                   *
    ************************************************************************/
   void Sort_descending();
-
 
   /************************************************************************
    *Swap: Swap two nodes, not only change the data in the node.           *
    ************************************************************************/
   void Swap();
+
+  /************************************************************************
+   * Compare: Compare two players data, print who wins in which data.     *
+   ************************************************************************/
+  void Compare();
 
 #endif
