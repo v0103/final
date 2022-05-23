@@ -523,11 +523,23 @@ void Compare(struct item *head,char player1,char player2)
 			printf("%d(loss)\t%d(win)\n",p->PTS,q->PTS);
 		}
 		else {
-			printf("Their PTS are the same.\n");
+			printf("%d\ttie\t%d\n\n",p->PTS,q->PTS);
 		}
 	}
 	
 }
 
+int cmp1(const void *a,const void *b)
+{
+	if (a->PTS > b->PTS) {
+		return 1;
+	}
+	else if (a->PTS < b->PTS) {
+		return -1;
+	}
+	else {
+		return 0;
+	}
+}
 
 
