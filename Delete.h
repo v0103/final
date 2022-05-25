@@ -5,5 +5,5 @@
    *         The program must print an error message                      *
    *         if there is no matching item to be deleted in the database.  *
    ************************************************************************/
-  void Delete(struct item *head, struct item *new);
+  void Delete(struct item *head, struct item *target);
 #endif

@@ -4,7 +4,8 @@
 
 #define FILE_NAME "nba.txt" //move to basic.h?
 
-void_READ(void);
+void _READ(void);
+void datum_input(struct item *build);
 /*struct name{
     char* first_name;
     char* middle_name;
