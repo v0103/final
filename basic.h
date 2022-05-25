@@ -10,7 +10,7 @@
     char* extra_name;
 };*/
 
-struct item{
+extern struct item{
         int AST;//assist
         int BLK;//block
         int STL;//steal
