@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "basic.h"
+#include "Compare.h"
 
 void Compare(struct item *head,char player1,char player2)
 {

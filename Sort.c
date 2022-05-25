@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "basic.h"
+#include "Sort.h"
 
 void Swap(struct item *previous,struct item *a,struct item *b)
 {

@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "basic.h"
+#include "Add.h"
 
 void Add(struct item *head, struct item *new_member)
 {

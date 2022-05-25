@@ -3,12 +3,22 @@
 #include <string.h>
 #include "basic.h"
 //#include "function.h"
+#include "Add.h"
+#include "Delete.h"
+#include "Compare.h"
+#include "Search.h"
+#include "Sort.h"
+#include "Traverse.h"
 #include "FILEIO.h"
+
+void datum_input(struct item *build);
+void _READ(void);
 
 int main()
 {
     struct item *list,*add_item,*manual_item;
     //add test
+    /*
     add_item.AST = 1;
     add_item.BLK = 1;
     add_item.STL = 1;
@@ -18,17 +28,6 @@ int main()
     add_item.PTS = 1;//total point
     add_item.total_name = "add_test_name";//total name
     add_item.team = "add_test_team";
-    //delete,search test
-    /*
-    delete_item.AST = 1;
-    delete_item.BLK = 1;
-    delete_item.STL = 1;
-    delete_item.REB = 1;
-    delete_item.FG = 0.5;
-    delete_item.POS = '+';//position
-    delete_item.PTS = 1;//total point
-    delete_item.total_name = "Steven Adams";//total name
-    delete_item.team = "NOP";
     */
     //initiation
     printf("Program Start!\n");
@@ -40,9 +39,11 @@ int main()
     {
         printf("[1]Add [2]Delete [3]Compare [4]Search [5]Sort(ascend) [6]Sort(descend) [7]Traverse [8]exit");
         scanf("%d", &option);
-        //printf("(1)auto (2)manual input");
-        //scanf("%d", &input);
-        datum_input(manual_item);
+//        printf("[1]auto [2]manual input");
+//        scanf("%d", &input);
+//        if(input == 2)
+            datum_input(manual_item);
+
         if(option == 1)
         {
             Add(list, manual_item);
@@ -99,6 +100,7 @@ int main()
 
 void datum_input(struct item *build)//build the target
 {
+    printf("input a structure data for use.\n");
     printf("item\tAST:");   scanf("%d",&build.AST);
     printf("item\tBLK:");   scanf("%d",&build.BLK);
     printf("item\tSTL:");   scanf("%d",&build.STL);

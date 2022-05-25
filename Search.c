@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "basic.h"
+#include "Search.h"
 void Search(struct item **HEAD, char *type, char *goal) {
 
     /*

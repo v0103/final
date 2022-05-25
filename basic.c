@@ -1,14 +1,7 @@
-#ifndef BASIC_H
-#define BASIC_H
-//basic.h
-
-#define FILE_NAME "nba.txt" //move to basic.h?
-
-/*struct name{
-    char* first_name;
-    char* middle_name;
-    char* extra_name;
-};*/
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include "basic.h"
 
 struct item{
         int AST;//assist
@@ -22,5 +15,3 @@ struct item{
         char team[10];
         struct item *next;
 };
-
-#endif // BASIC_H

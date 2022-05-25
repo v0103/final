@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "basic.h"
+#include "Delete.h"
 
 void Delete(struct item *head, struct item *target)
 {
