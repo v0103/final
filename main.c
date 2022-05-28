@@ -11,24 +11,39 @@
 #include "Traverse.h"
 #include "FILEIO.h"
 
-void datum_input(struct item *build);
-void _READ(void);
+void datum_input();
+void _READ();
 
 int main()
 {
-    struct item *list,*add_item,*manual_item;
-    //add test
-    /*
-    add_item.AST = 1;
-    add_item.BLK = 1;
-    add_item.STL = 1;
-    add_item.REB = 1;
-    add_item.FG = 0.5;
-    add_item.POS = '+';//position
-    add_item.PTS = 1;//total point
-    add_item.total_name = "add_test_name";//total name
-    add_item.team = "add_test_team";
-    */
+    struct item *list,*test_item,*manual_item,*add_item;
+    //struct *add_item;
+    //add data
+    //player    POS team        FG  REB AST STL BLK PTS
+    //Add_Test  T	add_test	0.5	1	1	1	1	1
+    add_item->AST = 0;
+    add_item->BLK = 0;
+    add_item->STL = 0;
+    add_item->REB = 0;
+    add_item->FG = 0.0;
+    add_item->POS = 'T';//position
+    add_item->PTS = 0;//total point
+    add_item->total_name = {"Add_Test"};//total name
+    add_item->team = "add";
+    //struct *test_item;
+    //test data
+    //player        POS team FG     REB AST STL BLK PTS
+    //Steven Adams	C	NOP	 0.614	514	111	54	38	438
+    test_item->AST = 111;
+    test_item->BLK = 38;
+    test_item->STL = 54;
+    test_item->REB = 514;
+    test_item->FG = 0.614;
+    test_item->POS = 'C';//position
+    test_item->PTS = 438;//total point
+    test_item->total_name = {"Steven"," ","Adams"};//total name
+    test_item->team = "NOP";
+
     //initiation
     printf("Program Start!\n");
     _READ(list);//database should be determine
@@ -39,40 +54,61 @@ int main()
     {
         printf("[1]Add [2]Delete [3]Compare [4]Search [5]Sort(ascend) [6]Sort(descend) [7]Traverse [8]exit");
         scanf("%d", &option);
-//        printf("[1]auto [2]manual input");
-//        scanf("%d", &input);
-//        if(input == 2)
+        printf("[1]auto(only for 1,2,3) [2]manual input");
+        scanf("%d", &input);
+
+        if(input == 2)
             datum_input(manual_item);
 
         if(option == 1)
         {
-            Add(list, manual_item);
+            if(input == 1)
+                Add(list, add_item);
+            else if(input == 2)
+                Add(list, manual_item);
+            else{
+                printf("wrong input option\n");
+                continue;
+            }
             Traverse(list);
         }
         else if(option == 2)
         {
-            Delete(list, manual_item);
+            if(input == 1)
+                Delete(list, test_item);
+            else if(input == 2)
+                Delete(list, manual_item);
+            else{
+                printf("wrong input option\n");
+                continue;
+            }
             Traverse(list);
         }
         else if(option == 3)
         {
-            struct item cmp_item;
+            struct item *cmp_item;
             datum_input(cmp_item);
-            Compare(list,manual_item,cmp_item);
+            if(input == 1)
+                Compare(list,test_item->total_name,cmp_item->total_name);
+            else if(input == 2)
+                Compare(list,manual_item->total_name,cmp_item->total_name);
+            else{
+                printf("wrong input option\n");
+                continue;
+            }
         }
         else if(option == 4)
         {
-            char post[50],actual[50];
-            printf("input NAME/TEAM/POS:");
+            char post[10],actual[50];
+            printf("input item NAME/TEAM/POS:");
             scanf("%s", &post);
-            printf("input name/team/pos:");
+            printf("input actual name/team/pos:");
             scanf("%s", &actual);
             Search(list, post, actual);
         }
-
         else if(option == 5)
         {
-            char cmp_data[50]
+            char cmp_data[10];
             printf("input AST/BLK/STL/REB/FG:");
             scanf("%s", &cmp_data);
             Sort_ascending(list, cmp_data);//too long?
@@ -80,7 +116,7 @@ int main()
         }
         else if(option == 6)
         {
-            char cmp_data[50]
+            char cmp_data[10];
             printf("input AST/BLK/STL/REB/FG:");
             scanf("%s", &cmp_data);
             Sort_descending(list, cmp_data);//too long?
@@ -91,6 +127,7 @@ int main()
             Traverse(list);
         }
         else{
+                printf("wrong function option\n");
             continue;
         }
     }
@@ -101,19 +138,19 @@ int main()
 void datum_input(struct item *build)//build the target
 {
     printf("input a structure data for use.\n");
-    printf("item\tAST:");   scanf("%d",&build.AST);
-    printf("item\tBLK:");   scanf("%d",&build.BLK);
-    printf("item\tSTL:");   scanf("%d",&build.STL);
-    printf("item\tREB:");   scanf("%d",&build.REB);
-    printf("item\tFG:");    scanf("%f",&build.FG);
-    printf("item\tPOS:");   scanf("%c",&build.POS);
-    printf("item\tPTS:");   scanf("%d",&build.PTS);
-    printf("item\tplayer:");scanf("%s",&build.total_name);
-    printf("item\tteam:");  scanf("%s",&build.team);
+    printf("item\tAST:");   scanf("%d",&build->AST);
+    printf("item\tBLK:");   scanf("%d",&build->BLK);
+    printf("item\tSTL:");   scanf("%d",&build->STL);
+    printf("item\tREB:");   scanf("%d",&build->REB);
+    printf("item\tFG:");    scanf("%f",&build->FG);
+    printf("item\tPOS:");   scanf("%c",&build->POS);
+    printf("item\tPTS:");   scanf("%d",&build->PTS);
+    printf("item\tplayer:");scanf("%s",&build->total_name);
+    printf("item\tteam:");  scanf("%s",&build->team);
 }
 
 /*read and save data*/
-void _READ(struct item *list)
+void READ(struct item *list)
 {
     FILE *fp;
     fp = fopen(FILE_NAME, "r"); //open file ,r,w,a which one?

@@ -4,7 +4,7 @@
 #include "basic.h"
 #include "Compare.h"
 
-void Compare(struct item *head,char player1,char player2)
+void Compare(struct item *head,char player1[10],char player2[10])
 {
 	struct item *p,*q;
 	int val = 0;
