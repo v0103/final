@@ -5,5 +5,5 @@
    *      The program must print an error message                         *
    *      if the item is already in the database.                         *
    ************************************************************************/
-  extern void Add();
+  void Add();
 #endif

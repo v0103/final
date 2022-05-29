@@ -10,7 +10,7 @@
 #include "Sort.h"
 #include "Traverse.h"
 #include "FILEIO.h"
-
+#define FILE_NAME "nba.txt" //move to basic.h?
 void datum_input();
 void _READ();
 
@@ -21,6 +21,7 @@ int main()
     //add data
     //player    POS team        FG  REB AST STL BLK PTS
     //Add_Test  T	add_test	0.5	1	1	1	1	1
+    add_item = malloc(sizeof(struct item));
     add_item->AST = 0;
     add_item->BLK = 0;
     add_item->STL = 0;
@@ -28,12 +29,13 @@ int main()
     add_item->FG = 0.0;
     add_item->POS = 'T';//position
     add_item->PTS = 0;//total point
-    add_item->total_name = {"Add_Test"};//total name
-    add_item->team = "add";
+    strcpy(add_item->total_name, "Add Test");//total name
+    strcpy(add_item->team, "add");
     //struct *test_item;
     //test data
     //player        POS team FG     REB AST STL BLK PTS
     //Steven Adams	C	NOP	 0.614	514	111	54	38	438
+    test_item = malloc(sizeof(struct item));
     test_item->AST = 111;
     test_item->BLK = 38;
     test_item->STL = 54;
@@ -41,8 +43,8 @@ int main()
     test_item->FG = 0.614;
     test_item->POS = 'C';//position
     test_item->PTS = 438;//total point
-    test_item->total_name = {"Steven"," ","Adams"};//total name
-    test_item->team = "NOP";
+    strcpy(test_item->total_name, "Steven Adams");//total name
+    strcpy(test_item->team, "NOP");
 
     //initiation
     printf("Program Start!\n");
@@ -52,9 +54,9 @@ int main()
     //function
     while(option != 8)
     {
-        printf("[1]Add [2]Delete [3]Compare [4]Search [5]Sort(ascend) [6]Sort(descend) [7]Traverse [8]exit");
+        printf("[1]Add [2]Delete [3]Compare [4]Search [5]Sort(ascend) [6]Sort(descend) [7]Traverse [8]exit:");
         scanf("%d", &option);
-        printf("[1]auto(only for 1,2,3) [2]manual input");
+        printf("[1]auto(only for 1,2,3) [2]manual input:");
         scanf("%d", &input);
 
         if(input == 2)
@@ -70,7 +72,7 @@ int main()
                 printf("wrong input option\n");
                 continue;
             }
-            Traverse(list);
+            Traverse(&list);
         }
         else if(option == 2)
         {
@@ -82,7 +84,7 @@ int main()
                 printf("wrong input option\n");
                 continue;
             }
-            Traverse(list);
+            Traverse(&list);
         }
         else if(option == 3)
         {
@@ -101,30 +103,30 @@ int main()
         {
             char post[10],actual[50];
             printf("input item NAME/TEAM/POS:");
-            scanf("%s", &post);
+            scanf("%s", post);
             printf("input actual name/team/pos:");
-            scanf("%s", &actual);
+            scanf("%s", actual);
             Search(list, post, actual);
         }
         else if(option == 5)
         {
             char cmp_data[10];
             printf("input AST/BLK/STL/REB/FG:");
-            scanf("%s", &cmp_data);
-            Sort_ascending(list, cmp_data);//too long?
-            Traverse(list);
+            scanf("%s", cmp_data);
+            //Sort_ascending(list, cmp_data);//too long?
+            Traverse(&list);
         }
         else if(option == 6)
         {
             char cmp_data[10];
             printf("input AST/BLK/STL/REB/FG:");
-            scanf("%s", &cmp_data);
-            Sort_descending(list, cmp_data);//too long?
-            Traverse(list);
+            scanf("%s", cmp_data);
+            //Sort_descending(list, cmp_data);//too long?
+            Traverse(&list);
         }
         else if(option == 7)
         {
-            Traverse(list);
+            Traverse(&list);
         }
         else{
                 printf("wrong function option\n");
@@ -145,15 +147,15 @@ void datum_input(struct item *build)//build the target
     printf("item\tFG:");    scanf("%f",&build->FG);
     printf("item\tPOS:");   scanf("%c",&build->POS);
     printf("item\tPTS:");   scanf("%d",&build->PTS);
-    printf("item\tplayer:");scanf("%s",&build->total_name);
-    printf("item\tteam:");  scanf("%s",&build->team);
+    printf("item\tplayer:");scanf("%s", build->total_name);
+    printf("item\tteam:");  scanf("%s", build->team);
 }
 
 /*read and save data*/
-void READ(struct item *list)
+void _READ(struct item *list)
 {
     FILE *fp;
-    fp = fopen(FILE_NAME, "r"); //open file ,r,w,a which one?
+    fp = fopen(FILE_NAME, "w"); //open file ,r,w,a which one?
     if (fp == NULL)
     {
         printf("Can't open %s\n", FILE_NAME);

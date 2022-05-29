@@ -2,7 +2,7 @@
 #define BASIC_H
 //basic.h
 
-#define FILE_NAME "nba.txt" //move to basic.h?
+//#define FILE_NAME "nba.txt" //move to basic.h?
 
 /*struct name{
     char* first_name;
@@ -10,7 +10,7 @@
     char* extra_name;
 };*/
 
-extern struct item{
+struct item{
         int AST;//assist
         int BLK;//block
         int STL;//steal
