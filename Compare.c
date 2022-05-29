@@ -32,8 +32,53 @@ void Compare(struct item *head,char player1[10],char player2[10])
 		else if (p->PTS < q->PTS) {
 			printf("%d(loss)\t%d(win)\n",p->PTS,q->PTS);
 		}
-		else {
-			printf("%d\ttie\t%d\n\n",p->PTS,q->PTS);
+		else if (p->PTS == q->PTS) {
+			printf("%d\ttie\t%d\n",p->PTS,q->PTS);
+		}
+		else if (p->AST > q->AST) {
+			printf("%d(win)\t%d(loss)\n",p->AST,q->AST);
+		}
+		else if (p->AST < q->AST) {
+			printf("%d(loss)\t%d(win)\n",p->AST,q->AST);
+		}
+		else if (p->AST == q->AST) {
+			printf("%d\ttie\t%d\n",p->AST,q->AST);
+		}
+		else if (p->REB > q->REB) {
+			printf("%d(win)\t%d(loss)\n",p->REB,q->REB);
+		}
+		else if (p->REB < q->REB) {
+			printf("%d(loss)\t%d(win)\n",p->REB,q->REB);
+		}
+		else if (p->REB == q->REB) {
+			printf("%d\ttie\t%d\n",p->REB,q->REB);
+		}
+		else if (p->BLK > q->BLK) {
+			printf("%d(win)\t%d(loss)\n",p->BLK,q->BLK);
+		}
+		else if (p->BLK < q->BLK) {
+			printf("%d(loss)\t%d(win)\n",p->BLK,q->BLK);
+		}
+		else if (p->BLK == q->BLK) {
+			printf("%d\ttie\t%d\n",p->BLK,q->BLK);
+		}
+		else if (p->STL > q->STL) {
+			printf("%d(win)\t%d(loss)\n",p->STL,q->STL);
+		}
+		else if (p->STL < q->STL) {
+			printf("%d(loss)\t%d(win)\n",p->STL,q->STL);
+		}
+		else if (p->STL == q->STL) {
+			printf("%d\ttie\t%d\n",p->STL,q->STL);
+		}
+		else if (p->FG > q->FG) {
+			printf("%d(win)\t%d(loss)\n",p->FG,q->FG);
+		}
+		else if (p->FG < q->FG) {
+			printf("%d(loss)\t%d(win)\n",p->FG,q->FG);
+		}
+		else if (p->FG == q->FG) {
+			printf("%d\ttie\t%d\n",p->FG,q->FG);
 		}
 	}
 
