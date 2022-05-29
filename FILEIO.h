@@ -5,5 +5,5 @@
    ************************************************************************/
   //void _READ();
   struct item* _BUILD(FILE *fp);
-  void _print(struct item *list);
+  //void _print(struct item *list);
 #endif
