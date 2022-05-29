@@ -4,28 +4,6 @@
 #include "basic.h"
 #include "Sort.h"
 
-#define judgesmall(a,b,c) (if(a->c < b->c){ \
-				Swap(pre,a,b); \
-				swapped = 1;   \
-				temp = a;      \
-                    		a = b;         \
-                    		b = temp;      \
-                   		if(pre==NULL) {    \
-                        		head = p; \
-                   		}                 \
-			}                         \
-			else if (a->c == a->b) { \
-					if (strcmp(a->total_name,b->total_name) > 0) { \
-						Swap(pre, a, b); \
-                    				swapped = 1;  \
-                    				temp = a;  \
-                    				a = b;\
-                    				b = temp;\
-                   				if(pre==NULL) {  \
-                        				head = p;\
-                   				} \
-					}\
-			})
 void Sort_ascending(struct item *head,char data[10])
 {
     int swapped = 0;
