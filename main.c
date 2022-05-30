@@ -12,7 +12,6 @@
 #include "FILEIO.h"
 #define FILE_NAME "nba.txt" //move to basic.h?
 void datum_input();
-void _READ();
 void _print();
 
 int main()
@@ -21,6 +20,17 @@ int main()
     add_item = malloc(sizeof(struct item));
     test_item = malloc(sizeof(struct item));
     manual_item = malloc(sizeof(struct item));
+    
+    
+    FILE *fp;
+    fp = fopen(FILE_NAME, "r+"); //open file ,r,w,a which one?
+    if (fp == NULL)
+    {
+        printf("Can't open %s\n", FILE_NAME);
+        exit(EXIT_FAILURE);
+    }
+    list=_BUILD(fp);
+    
     //struct *add_item;
     //add data
     //player    POS team        FG  REB AST STL BLK PTS
@@ -157,6 +167,7 @@ int main()
         }
     }
     printf("***Program Termination.***\n");
+    fclose(fp); // close file
     free(add_item);
     free(test_item);
     free(manual_item);
@@ -178,26 +189,10 @@ void datum_input(struct item *build)//build the target
     printf("item\tteam:");  scanf("%s", build->team);
 }
 
-/*read and save data*/
-void _READ(struct item *list)
-{
-    FILE *fp;
-    fp = fopen(FILE_NAME, "r"); //open file ,r,w,a which one?
-    if (fp == NULL)
-    {
-        printf("Can't open %s\n", FILE_NAME);
-        exit(EXIT_FAILURE);
-    }
-    //struct item *list;
-    list=_BUILD(fp);
-    //_print(list);
-    fclose(fp); // close file
-}
-
 /*check linked list*/
-void _print(struct item *list){
+/*void _print(struct item *list){
     while(list!=NULL){
         printf("%s %d\n", list->total_name, list->PTS);
         list = list->next;
     }
-}
+}*/
