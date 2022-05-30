@@ -129,7 +129,7 @@ int main()
             scanf("%s", post);
             printf("input actual name/team/pos:");
             scanf("%s", actual);
-            Search(list, post, actual);
+            Search(&list, post, actual);
         }
         else if(option == 5)
         {
