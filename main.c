@@ -64,9 +64,7 @@ int main()
     manual_item->next=NULL;
     //initiation
     printf("***Program Start!***\n");
-    _READ(list);//database should be determine
-    //_print(list);
-    //
+
     int option=0,input=0;
     //function
     while(1)
