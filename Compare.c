@@ -72,13 +72,13 @@ void Compare(struct item *head,char player1[10],char player2[10])
 			printf("%d\ttie\t%d\n",p->STL,q->STL);
 		}
 		else if (p->FG > q->FG) {
-			printf("%d(win)\t%d(loss)\n",p->FG,q->FG);
+			printf("%f(win)\t%f(loss)\n",p->FG,q->FG);
 		}
 		else if (p->FG < q->FG) {
-			printf("%d(loss)\t%d(win)\n",p->FG,q->FG);
+			printf("%f(loss)\t%f(win)\n",p->FG,q->FG);
 		}
 		else if (p->FG == q->FG) {
-			printf("%d\ttie\t%d\n",p->FG,q->FG);
+			printf("%f\ttie\t%f\n",p->FG,q->FG);
 		}
 	}
 
