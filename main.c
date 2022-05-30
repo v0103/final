@@ -21,7 +21,7 @@ int main()
     test_item = malloc(sizeof(struct item));
     manual_item = malloc(sizeof(struct item));
     
-    
+    /*file in*/
     FILE *fp;
     fp = fopen(FILE_NAME, "r+"); //open file ,r,w,a which one?
     if (fp == NULL)
@@ -30,6 +30,8 @@ int main()
         exit(EXIT_FAILURE);
     }
     list=_BUILD(fp);
+    /*file in*/
+    
     
     //struct *add_item;
     //add data
