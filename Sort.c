@@ -49,7 +49,7 @@ void Sort_ascending(struct item *head,char data[10])
                     			now = now_next;         
                     			now_next = temp;      
                    			if(pre==NULL) {    
-                        			head = p; 
+                        			head = now; 
                    			}                 
 				}                         
 				else if (now->PTS == now_next->PTS) { 
@@ -60,7 +60,7 @@ void Sort_ascending(struct item *head,char data[10])
                     				now = now_next;
                     				now_next = temp;
                    				if(pre==NULL) {  
-                        				head = p;
+                        				head = now;
                    				} 
 					}
 				}
@@ -73,7 +73,7 @@ void Sort_ascending(struct item *head,char data[10])
                     			now = now_next;         
                     			now_next = temp;      
                    			if(pre==NULL) {    
-                        			head = p; 
+                        			head = now; 
                    			}                 
 				}                         
 				else if (now->REB == now_next->REB) { 
@@ -84,7 +84,7 @@ void Sort_ascending(struct item *head,char data[10])
                     				now = now_next;
                     				now_next = temp;
                    				if(pre==NULL) {  
-                        				head = p;
+                        				head = now;
                    				} 
 					}
 				}
@@ -97,7 +97,7 @@ void Sort_ascending(struct item *head,char data[10])
                     			now = now_next;         
                     			now_next = temp;      
                    			if(pre==NULL) {    
-                        			head = p; 
+                        			head = now; 
                    			}                 
 				}                         
 				else if (now->AST == now_next->AST) { 
@@ -108,7 +108,7 @@ void Sort_ascending(struct item *head,char data[10])
                     				now = now_next;
                     				now_next = temp;
                    				if(pre==NULL) {  
-                        				head = p;
+                        				head = now;
                    				} 
 					}
 				}
@@ -121,7 +121,7 @@ void Sort_ascending(struct item *head,char data[10])
                     			now = now_next;         
                     			now_next = temp;      
                    			if(pre==NULL) {    
-                        			head = p; 
+                        			head = now; 
                    			}                 
 				}                         
 				else if (now->STL == now_next->STL) { 
@@ -132,7 +132,7 @@ void Sort_ascending(struct item *head,char data[10])
                     				now = now_next;
                     				now_next = temp;
                    				if(pre==NULL) {  
-                        				head = p;
+                        				head = now;
                    				} 
 					}
 				}
@@ -145,7 +145,7 @@ void Sort_ascending(struct item *head,char data[10])
                     			now = now_next;         
                     			now_next = temp;      
                    			if(pre==NULL) {    
-                        			head = p; 
+                        			head = now; 
                    			}                 
 				}                         
 				else if (now->BLK == now_next->BLK) { 
@@ -156,7 +156,7 @@ void Sort_ascending(struct item *head,char data[10])
                     				now = now_next;
                     				now_next = temp;
                    				if(pre==NULL) {  
-                        				head = p;
+                        				head = now;
                    				} 
 					}
 				}
@@ -169,7 +169,7 @@ void Sort_ascending(struct item *head,char data[10])
                     			now = now_next;         
                     			now_next = temp;      
                    			if(pre==NULL) {    
-                        			head = p; 
+                        			head = now; 
                    			}                 
 				}                         
 				else if (now->FG == now_next->FG) { 
@@ -180,7 +180,7 @@ void Sort_ascending(struct item *head,char data[10])
                     				now = now_next;
                     				now_next = temp;
                    				if(pre==NULL) {  
-                        				head = p;
+                        				head = now;
                    				} 
 					}
 				}
@@ -232,7 +232,7 @@ void Sort_descending(struct item *head,char data[10])
         now = head;
         now_next = now->next;
         while (now_next != lastptr) {  //check if the swapped until last node
-        	switch(data){
+        	switch(val){
 			case 1:
 				if(now->PTS < now_next->PTS){ 
 					Swap(pre,now,now_next); 
@@ -241,7 +241,7 @@ void Sort_descending(struct item *head,char data[10])
                     			now = now_next;         
                     			now_next = temp;      
                    			if(pre==NULL) {    
-                        			head = p; 
+                        			head = now; 
                    			}                 
 				}                         
 				else if (now->PTS == now_next->PTS) { 
@@ -252,7 +252,7 @@ void Sort_descending(struct item *head,char data[10])
                     				now = now_next;
                     				now_next = temp;
                    				if(pre==NULL) {  
-                        				head = p;
+                        				head = now;
                    				} 
 					}
 				}
@@ -265,7 +265,7 @@ void Sort_descending(struct item *head,char data[10])
                     			now = now_next;         
                     			now_next = temp;      
                    			if(pre==NULL) {    
-                        			head = p; 
+                        			head = now; 
                    			}                 
 				}                         
 				else if (now->REB == now_next->REB) { 
@@ -276,7 +276,7 @@ void Sort_descending(struct item *head,char data[10])
                     				now = now_next;
                     				now_next = temp;
                    				if(pre==NULL) {  
-                        				head = p;
+                        				head = now;
                    				} 
 					}
 				}
@@ -289,7 +289,7 @@ void Sort_descending(struct item *head,char data[10])
                     			now = now_next;         
                     			now_next = temp;      
                    			if(pre==NULL) {    
-                        			head = p; 
+                        			head = now; 
                    			}                 
 				}                         
 				else if (now->AST == now_next->AST) { 
@@ -300,7 +300,7 @@ void Sort_descending(struct item *head,char data[10])
                     				now = now_next;
                     				now_next = temp;
                    				if(pre==NULL) {  
-                        				head = p;
+                        				head = now;
                    				} 
 					}
 				}
@@ -313,7 +313,7 @@ void Sort_descending(struct item *head,char data[10])
                     			now = now_next;         
                     			now_next = temp;      
                    			if(pre==NULL) {    
-                        			head = p; 
+                        			head = now; 
                    			}                 
 				}                         
 				else if (now->STL == now_next->STL) { 
@@ -324,7 +324,7 @@ void Sort_descending(struct item *head,char data[10])
                     				now = now_next;
                     				now_next = temp;
                    				if(pre==NULL) {  
-                        				head = p;
+                        				head = now;
                    				} 
 					}
 				}
@@ -337,7 +337,7 @@ void Sort_descending(struct item *head,char data[10])
                     			now = now_next;         
                     			now_next = temp;      
                    			if(pre==NULL) {    
-                        			head = p; 
+                        			head = now; 
                    			}                 
 				}                         
 				else if (now->BLK == now_next->BLK) { 
@@ -348,7 +348,7 @@ void Sort_descending(struct item *head,char data[10])
                     				now = now_next;
                     				now_next = temp;
                    				if(pre==NULL) {  
-                        				head = p;
+                        				head = now;
                    				} 
 					}
 				}
@@ -361,7 +361,7 @@ void Sort_descending(struct item *head,char data[10])
                     			now = now_next;         
                     			now_next = temp;      
                    			if(pre==NULL) {    
-                        			head = p; 
+                        			head = now; 
                    			}                 
 				}                         
 				else if (now->FG == now_next->FG) { 
@@ -372,7 +372,7 @@ void Sort_descending(struct item *head,char data[10])
                     				now = now_next;
                     				now_next = temp;
                    				if(pre==NULL) {  
-                        				head = p;
+                        				head = now;
                    				} 
 					}
 				}
