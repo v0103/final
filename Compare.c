@@ -10,19 +10,37 @@ void Compare(struct item *head,char player1[10],char player2[10])
 	int val = 0;
 	p = head;
 	q = head;
-	while (strcmp(p->total_name,player1) != 0 && p != NULL) {
-		p = p->next;
-		if (p == NULL) {
+	char team[10];
+	while(p!=NULL){
+		if(strcmp(p->total_name,player1) == 0){
+			printf("%s\n",p->);
+		}
+		else if (p == NULL) {
 			printf("We can't find %s in this list.\n",player1);
 			val = 1;
 		}
+		p=p->next;
 	}
-	while (strcmp(q->total_name,player2) != 0 && q != NULL) {
-		q = q->next;
-		if (q == NULL) {
+	while(q!=NULL){
+		if(strcmp(q->total_name,player2) == 0){
+			printf("%s\n",q->);
+		}
+		else if (q == NULL) {
 			printf("We can't find %s in this list.\n",player2);
 			val = 1;
 		}
+		q=q->next;
+	}
+	printf("Which team data do you want to know? ");
+	scanf("%s",team);
+	while (strcmp(p->total_name,player1) != 0 && p != NULL) {
+		p = p->next;
+		
+		
+	}
+	while (strcmp(q->total_name,player2) != 0 && q != NULL) {
+		q = q->next;
+		
 	}
 	if (val != 1) {
 		printf("%s\tvs\t%s\n",player1,player2);
