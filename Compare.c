@@ -10,10 +10,11 @@ void Compare(struct item *head,char player1[10],char player2[10])
 	int val = 0;
 	p = head;
 	q = head;
-	char team[10];
+	char Team1[10];
+	char Team2[10];
 	while(p!=NULL){
 		if(strcmp(p->total_name,player1) == 0){
-			printf("%s\n",p->);
+			printf("%s\n",p->team);
 		}
 		else if (p == NULL) {
 			printf("We can't find %s in this list.\n",player1);
@@ -21,9 +22,11 @@ void Compare(struct item *head,char player1[10],char player2[10])
 		}
 		p=p->next;
 	}
+	printf("Which team data do you want to know for %s? ",p->total_name);
+	scanf("%s",Team1);
 	while(q!=NULL){
 		if(strcmp(q->total_name,player2) == 0){
-			printf("%s\n",q->);
+			printf("%s\n",q->team);
 		}
 		else if (q == NULL) {
 			printf("We can't find %s in this list.\n",player2);
@@ -31,16 +34,15 @@ void Compare(struct item *head,char player1[10],char player2[10])
 		}
 		q=q->next;
 	}
-	printf("Which team data do you want to know? ");
-	scanf("%s",team);
-	while (strcmp(p->total_name,player1) != 0 && p != NULL) {
+	printf("Which team data do you want to know for %s? ",q->total_name);
+	scanf("%s",Team2);
+	p = head;
+	q = head;
+	while (strcmp(p->total_name,player1) != 0 && strcmp(p->team,Team1) != 0 && p != NULL) {
 		p = p->next;
-		
-		
 	}
-	while (strcmp(q->total_name,player2) != 0 && q != NULL) {
+	while (strcmp(q->total_name,player2) != 0 && strcmp(q->team,Team2) != 0 && q != NULL) {
 		q = q->next;
-		
 	}
 	if (val != 1) {
 		printf("%s\tvs\t%s\n",player1,player2);
