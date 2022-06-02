@@ -10,7 +10,7 @@
 #include "Sort.h"
 #include "Traverse.h"
 #include "FILEIO.h"
-#define FILE_NAME "C:\\Users\\AVEN\\Desktop\\final-main\\nba.txt" //move to basic.h?
+#define FILE_NAME "nba.txt" //move to basic.h?
 void datum_input();
 void _print();
 
