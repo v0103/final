@@ -3,6 +3,7 @@
 #include <string.h>
 #include "basic.h"
 #include "Delete.h"
+#include "S.h"
 
 void Delete(struct item *head, char *Name) {
     /*
