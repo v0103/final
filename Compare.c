@@ -32,67 +32,66 @@ void Compare(struct item *head, char *player1, char *player2)
 		q = q->next;
 	}
 	if (val != 1) {
-		printf("%s\tvs\t%s\n",player1,player2);
-		printf("PTS");
+		printf("\t%s\tvs\t%s\n",player1,player2);
+		printf("PTS\t");
 		if (p->PTS > q->PTS) {
-			printf("%d(win)\t%d(loss)\n",p->PTS,q->PTS);
+			printf("%d(win)\t\t%d(loss)\n",p->PTS,q->PTS);
 		}
 		else if (p->PTS < q->PTS) {
-			printf("%d(loss)\t%d(win)\n",p->PTS,q->PTS);
+			printf("%d(loss)\t\t%d(win)\n",p->PTS,q->PTS);
 		}
 		else if (p->PTS == q->PTS) {
-			printf("%d\ttie\t%d\n",p->PTS,q->PTS);
+			printf("%d\ttie\t\t%d\n",p->PTS,q->PTS);
 		}
-		printf("AST");
+		printf("AST\t");
 		if (p->AST > q->AST) {
-			printf("%d(win)\t%d(loss)\n",p->AST,q->AST);
+			printf("%d(win)\t\t%d(loss)\n",p->AST,q->AST);
 		}
 		else if (p->AST < q->AST) {
-			printf("%d(loss)\t%d(win)\n",p->AST,q->AST);
+			printf("%d(loss)\t\t%d(win)\n",p->AST,q->AST);
 		}
 		else if (p->AST == q->AST) {
-			printf("%d\ttie\t%d\n",p->AST,q->AST);
+			printf("%d\ttie\t\t%d\n",p->AST,q->AST);
 		}
-		printf("REB");
+		printf("REB\t");
 		if (p->REB > q->REB) {
-			printf("%d(win)\t%d(loss)\n",p->REB,q->REB);
+			printf("%d(win)\t\t%d(loss)\n",p->REB,q->REB);
 		}
 		else if (p->REB < q->REB) {
-			printf("%d(loss)\t%d(win)\n",p->REB,q->REB);
+			printf("%d(loss)\t\t%d(win)\n",p->REB,q->REB);
 		}
 		else if (p->REB == q->REB) {
-			printf("%d\ttie\t%d\n",p->REB,q->REB);
+			printf("%d\ttie\t\t%d\n",p->REB,q->REB);
 		}
-		printf("BLK");
+		printf("BLK\t");
 		if (p->BLK > q->BLK) {
-			printf("%d(win)\t%d(loss)\n",p->BLK,q->BLK);
+			printf("%d(win)\t\t%d(loss)\n",p->BLK,q->BLK);
 		}
 		else if (p->BLK < q->BLK) {
-			printf("%d(loss)\t%d(win)\n",p->BLK,q->BLK);
+			printf("%d(loss)\t\t%d(win)\n",p->BLK,q->BLK);
 		}
 		else if (p->BLK == q->BLK) {
-			printf("%d\ttie\t%d\n",p->BLK,q->BLK);
+			printf("%d\ttie\t\t%d\n",p->BLK,q->BLK);
 		}
-		printf("STL");
+		printf("STL\t");
 		if (p->STL > q->STL) {
-			printf("%d(win)\t%d(loss)\n",p->STL,q->STL);
+			printf("%d(win)\t\t%d(loss)\n",p->STL,q->STL);
 		}
 		else if (p->STL < q->STL) {
-			printf("%d(loss)\t%d(win)\n",p->STL,q->STL);
+			printf("%d(loss)\t\t%d(win)\n",p->STL,q->STL);
 		}
 		else if (p->STL == q->STL) {
-			printf("%d\ttie\t%d\n",p->STL,q->STL);
+			printf("%d\ttie\t\t%d\n",p->STL,q->STL);
 		}
-		printf("FG");
+		printf("FG\t");
 		if (p->FG > q->FG) {
-			printf("%f(win)\t%f(loss)\n",p->FG,q->FG);
+			printf("%f(win)\t\t%f(loss)\n",p->FG,q->FG);
 		}
 		else if (p->FG < q->FG) {
-			printf("%f(loss)\t%f(win)\n",p->FG,q->FG);
+			printf("%f(loss)\t\t%f(win)\n",p->FG,q->FG);
 		}
 		else if (p->FG == q->FG) {
-			printf("%f\ttie\t%f\n",p->FG,q->FG);
+			printf("%f\ttie\t\t%f\n",p->FG,q->FG);
 		}
 	}
-
 }
