@@ -154,7 +154,7 @@ int main()
             char cmp_data[10];
             printf("input AST/BLK/STL/REB/FG/PTS:");
             scanf("%s", cmp_data);
-            Sort_ascending(list, cmp_data);//too long?
+            //Sort_ascending(list, cmp_data);//too long?
             //Traverse(&list);
         }
         else if(option == 6)
@@ -162,7 +162,7 @@ int main()
             char cmp_data[10];
             printf("input AST/BLK/STL/REB/FG:");
             scanf("%s", cmp_data);
-            Sort_descending(list, cmp_data);//too long?
+            //Sort_descending(list, cmp_data);//too long?
             //Traverse(&list);
         }
         else if(option == 7)

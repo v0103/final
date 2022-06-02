@@ -49,10 +49,8 @@ void Search(struct item **HEAD, char *type, char *goal) {
 
             if (temp->POS == goal[0]) {
                 search = 1;
-
                 printf("\nNAME      \tTEAM\tPOS\tPTS\tREB\tAST\tSTL\tBLK\tFG%%\n\n");
                 printf("%s\t%s\t%c\t%d\t%d\t%d\t%d\t%d\t%f\n", temp->total_name, temp->team, temp->POS, temp->PTS, temp->REB, temp->AST, temp->STL, temp->BLK, temp->FG);
-
             }
 
             temp = temp->next;
