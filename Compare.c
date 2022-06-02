@@ -5,7 +5,7 @@
 #include "Compare.h"
 #include "Search.h"
 
-void Compare(struct item *head,char player1[10],char player2[10])
+void Compare(struct item *head,char player1[20],char player2[20])
 {
 	struct item *p,*q;
 	int val = 0;
