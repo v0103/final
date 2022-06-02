@@ -7,31 +7,78 @@
 
 void Compare(struct item *head, char *player1, char *player2)
 {
-	struct item *p,*q;
+	struct item *p,*q,*temp;
 	int val = 0;
+	int search1 = 0,search2 = 0;
 	p = head;
 	q = head;
+	temp = head;
 	char Team1[10];
 	char Team2[10];
-    if (head == NULL) {  // check if the list is empty
-        printf("the list is empty.\n");
-        return;
-    }
-    Search(&head, "NAME", player1);
-	printf("Which team data do you want to know for %s? :",player1);
-	scanf("%s",Team1);
+    	if (head == NULL) {  // check if the list is empty
+        	printf("the list is empty.\n");
+        	return;
+    	}
+    	//Search(&head, "NAME", player1);
+    	while(temp != NULL){
+    		if (!strcmp(temp->total_name, player1)) {
+                search1 = 1;
+                printf("\nNAME      \tTEAM\tPOS\tPTS\tREB\tAST\tSTL\tBLK\tFG%%\n\n");
+                printf("%s\t%s\t%c\t%d\t%d\t%d\t%d\t%d\t%f\n", temp->total_name, temp->team, temp->POS, temp->PTS, temp->REB, temp->AST, temp->STL, temp->BLK, temp->FG);
+                printf("\n");
+            }
 
-	Search(&head, "NAME", player2);
-	printf("Which team data do you want to know for %s? :",player2);
-	scanf("%s",Team2);
+            temp = temp->next;
+    	}
+ 
+	temp = head;
+	//Search(&head, "NAME", player2);
+	while(temp != NULL){
+    		if (!strcmp(temp->total_name, player2)) {
+                search2 = 1;
+                printf("\nNAME      \tTEAM\tPOS\tPTS\tREB\tAST\tSTL\tBLK\tFG%%\n\n");
+                printf("%s\t%s\t%c\t%d\t%d\t%d\t%d\t%d\t%f\n", temp->total_name, temp->team, temp->POS, temp->PTS, temp->REB, temp->AST, temp->STL, temp->BLK, temp->FG);
+                printf("\n");
+            }
 
-	while (strcmp(p->total_name,player1) != 0 && strcmp(p->team,Team1) != 0 && p != NULL) {
-		p = p->next;
+            temp = temp->next;
+    	}
+    	
+    	if(search1 != 0 && search2 != 0){
+    		printf("Which team data do you want to know for %s? :",player1);
+		scanf("%s",Team1);
+		
+		printf("Which team data do you want to know for %s? :",player2);
+    		scanf("%s",Team2);
+    	}
+    	else if(search1 != 0 && search2 == 0){
+    		val = 1;
+    		printf("Can not find %s in this list.\n",player2);
+    		printf("Please input correct player name.\n");
+    	}
+    	else if(search1 == 0 && search2 != 0){
+    		val = 1;
+    		printf("Can not find %s in this list.\n",player1);
+    		printf("Please input correct player name.\n");
+    	}
+    	else{
+    		val = 1;
+    		printf("Can not find %s in this list.\n",player1);
+    		printf("Can not find %s in this list.\n",player2);
+    		printf("Please input correct player name.\n");
+    	}
+	
+	if(val == 1){
+		printf("\n");
+		printf("Because input Name doesn't exist, so we can not compare!\n");
 	}
-	while (strcmp(q->total_name,player2) != 0 && strcmp(q->team,Team2) != 0 && q != NULL) {
-		q = q->next;
-	}
-	if (val != 1) {
+	else{
+		while (strcmp(p->total_name,player1) != 0 && strcmp(p->team,Team1) != 0 && p != NULL) {
+			p = p->next;
+		}
+		while (strcmp(q->total_name,player2) != 0 && strcmp(q->team,Team2) != 0 && q != NULL) {
+			q = q->next;
+		}
 		printf("\t%s\tvs\t%s\n",player1,player2);
 		printf("PTS\t");
 		if (p->PTS > q->PTS) {
@@ -94,4 +141,5 @@ void Compare(struct item *head, char *player1, char *player2)
 			printf("%f\ttie\t\t%f\n",p->FG,q->FG);
 		}
 	}
+
 }
