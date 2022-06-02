@@ -38,30 +38,30 @@ int main()
     //player    POS team        FG  REB AST STL BLK PTS
     //Add_Test  T	add_test	0.5	1	1	1	1	1
 
-    add_item->AST = 0;
-    add_item->BLK = 0;
-    add_item->STL = 0;
-    add_item->REB = 0;
-    add_item->FG = 0.0;
-    add_item->POS = 'T';//position
-    add_item->PTS = 0;//total point
-    strcpy(add_item->total_name, "Add Test");//total name
-    strcpy(add_item->team, "add");
-    add_item->next = NULL;
+//    add_item->AST = 0;
+//    add_item->BLK = 0;
+//    add_item->STL = 0;
+//    add_item->REB = 0;
+//    add_item->FG = 0.0;
+//    add_item->POS = 'T';//position
+//    add_item->PTS = 0;//total point
+//    strcpy(add_item->total_name, "Add Test");//total name
+//    strcpy(add_item->team, "add");
+//    add_item->next = NULL;
     //struct *test_item;
     //test data
     //player        POS team FG     REB AST STL BLK PTS
     //Steven Adams	C	NOP	 0.614	514	111	54	38	438
-    test_item->AST = 111;
-    test_item->BLK = 38;
-    test_item->STL = 54;
-    test_item->REB = 514;
-    test_item->FG = 0.614;
-    test_item->POS = 'C';//position
-    test_item->PTS = 438;//total point
-    strcpy(test_item->total_name, "Steven Adams");//total name
-    strcpy(test_item->team, "NOP");
-    test_item->next = NULL;
+//    test_item->AST = 111;
+//    test_item->BLK = 38;
+//    test_item->STL = 54;
+//    test_item->REB = 514;
+//    test_item->FG = 0.614;
+//    test_item->POS = 'C';//position
+//    test_item->PTS = 438;//total point
+//    strcpy(test_item->total_name, "Steven Adams");//total name
+//    strcpy(test_item->team, "NOP");
+//    test_item->next = NULL;
     //
     strcpy(manual_item->total_name,"0");
     strcpy(manual_item->team,"0");
@@ -81,59 +81,59 @@ int main()
         }
         if(option == 1)
         {
-            printf("Add : [1]auto(Add Test) [2]manual input:");
-            scanf("%d", &input);
-            if(input == 1)
-                Add(list, add_item);
-            else if(input == 2){
+//            printf("Add : [1]auto(Add Test) [2]manual input:");
+//            scanf("%d", &input);
+//            if(input == 1)
+//                Add(list, add_item);
+//            else if(input == 2){
                 printf("input a structure data for use.\n");
-                getchar(); datum_input(manual_item);
-                //printf("Add test\n");
+                getchar(); datum_input(manual_item,2);
                 Add(list, manual_item);
-            }
-            else{
-                printf("wrong input option\n");
-                continue;
-            }
+//            }
+//            }
+//            else{
+//                printf("wrong input option\n");
+//                continue;
+//            }
             //printf("Traverse test\n");
             //Traverse(&list);
         }
         else if(option == 2)
         {
-            printf("Delete : [1]auto(Steven Adams) [2]manual input:");
-            scanf("%d", &input);
-            if(input == 1)
-                Delete(list, test_item);
-            else if(input == 2){
+//            printf("Delete : [1]auto(Steven Adams) [2]manual input:");
+//            scanf("%d", &input);
+//            if(input == 1)
+//                Delete(list, test_item);
+//            else if(input == 2){
                 printf("input a structure data for use.\n");
-                getchar(); datum_input(manual_item);
+                getchar(); datum_input(manual_item,1);
                 Delete(list, manual_item->total_name);
-            }
-            else{
-                printf("wrong input option\n");
-                continue;
-            }
+//            }
+//            else{
+//                printf("wrong input option\n");
+//                continue;
+//            }
             //Traverse(&list);
         }
         else if(option == 3)
         {
-            printf("Compare : [1]auto(Steven Adams) [2]manual input:");
-            scanf("%d", &input);
+//            printf("Compare : [1]auto(Steven Adams) [2]manual input:");
+//            scanf("%d", &input);
             struct item *cmp_item;
             cmp_item = malloc(sizeof(struct item));
-            printf("please input the target data to be compared:\n");
-            getchar(); datum_input(cmp_item);
-            if(input == 1)
-                Compare(list,test_item->total_name,cmp_item->total_name);
-            else if(input == 2){
-                printf("input a structure data for use.\n");
-                datum_input(manual_item);
-                Compare(list,manual_item->total_name,cmp_item->total_name);
-            }
-            else{
-                printf("wrong input option\n");
-                continue;
-            }
+            printf("input player1 name:\n");
+            getchar(); datum_input(cmp_item,1);
+//            if(input == 1)
+//                Compare(list,test_item->total_name,cmp_item->total_name);
+//            else if(input == 2){
+                printf("input player2 name:\n");
+                datum_input(manual_item,1);
+                Compare(list,cmp_item->total_name,manual_item->total_name);
+//            }
+//            else{
+//                printf("wrong input option\n");
+//                continue;
+//            }
             free(cmp_item);
         }
         else if(option == 4)
@@ -182,11 +182,12 @@ int main()
     return 0;
 }
 
-void datum_input(struct item *build)//build the target
+void datum_input(struct item *build, int n)//build the target
 {
     char replace[50]={"0"};
     for(int i=0;i<50;i++)
         build->total_name[i]=replace[i];
+
 //    printf("input a structure data for use.\n");
 //    printf("item\tAST:");   scanf("%d",&build->AST);
 //    printf("item\tBLK:");   scanf("%d",&build->BLK);
@@ -199,7 +200,9 @@ void datum_input(struct item *build)//build the target
     printf("item\tplayer:"); fgets(replace,50,stdin);
     for(int i=0;i<strlen(replace)-1;i++)
         build->total_name[i]=replace[i];
-    printf("item\tteam:");  scanf("%s", build->team);
+    if(n==2){
+        printf("item\tteam:");scanf("%s", build->team);
+    }
 }
 
 /*check linked list*/
