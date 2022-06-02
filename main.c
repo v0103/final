@@ -20,7 +20,7 @@ int main()
     add_item = malloc(sizeof(struct item));
     test_item = malloc(sizeof(struct item));
     manual_item = malloc(sizeof(struct item));
-    
+
     /*file in*/
     FILE *fp;
     fp = fopen(FILE_NAME, "r+"); //open file ,r,w,a which one?
@@ -31,8 +31,8 @@ int main()
     }
     list=_BUILD(fp);
     /*file in*/
-    
-    
+
+
     //struct *add_item;
     //add data
     //player    POS team        FG  REB AST STL BLK PTS
@@ -79,7 +79,7 @@ int main()
         }
         if(option == 1)
         {
-            printf("Add : [1]auto [2]manual input:");
+            printf("Add : [1]auto(Add Test) [2]manual input:");
             scanf("%d", &input);
             if(input == 1)
                 Add(list, add_item);
@@ -98,13 +98,13 @@ int main()
         }
         else if(option == 2)
         {
-            printf("Delete : [1]auto [2]manual input:");
+            printf("Delete : [1]auto(Steven Adams) [2]manual input:");
             scanf("%d", &input);
             if(input == 1)
                 Delete(list, test_item);
             else if(input == 2){
                 printf("input a structure data for use.\n");
-                datum_input(manual_item);
+                getchar(); datum_input(manual_item);
                 Delete(list, manual_item);
             }
             else{
@@ -115,11 +115,12 @@ int main()
         }
         else if(option == 3)
         {
-            printf("Compare : [1]auto [2]manual input:");
+            printf("Compare : [1]auto(Steven Adams) [2]manual input:");
             scanf("%d", &input);
             struct item *cmp_item;
+            cmp_item = malloc(sizeof(struct item));
             printf("please input the target data to be compared:\n");
-            datum_input(cmp_item);
+            getchar(); datum_input(cmp_item);
             if(input == 1)
                 Compare(list,test_item->total_name,cmp_item->total_name);
             else if(input == 2){
@@ -131,6 +132,7 @@ int main()
                 printf("wrong input option\n");
                 continue;
             }
+            free(cmp_item);
         }
         else if(option == 4)
         {
@@ -144,7 +146,7 @@ int main()
         else if(option == 5)
         {
             char cmp_data[10];
-            printf("input AST/BLK/STL/REB/FG:");
+            printf("input AST/BLK/STL/REB/FG/PTS:");
             scanf("%s", cmp_data);
             //Sort_ascending(list, cmp_data);//too long?
             Traverse(&list);
@@ -176,17 +178,22 @@ int main()
 
 void datum_input(struct item *build)//build the target
 {
-    //printf("input a structure data for use.\n");
-    printf("item\tAST:");   scanf("%d",&build->AST);
-    printf("item\tBLK:");   scanf("%d",&build->BLK);
-    printf("item\tSTL:");   scanf("%d",&build->STL);
-    printf("item\tREB:");   scanf("%d",&build->REB);
-    printf("item\tFG:");    scanf("%f",&build->FG);
-    getchar();
-    printf("item\tPOS:");   scanf("%c",&build->POS);
-    printf("item\tPTS:");   scanf("%d",&build->PTS);
-    printf("item\tplayer:");scanf("%s", build->total_name);
-    printf("item\tteam:");  scanf("%s", build->team);
+    char replace[50]={"0"};
+    for(int i=0;i<50;i++)
+        build->total_name[i]=replace[i];
+//    printf("input a structure data for use.\n");
+//    printf("item\tAST:");   scanf("%d",&build->AST);
+//    printf("item\tBLK:");   scanf("%d",&build->BLK);
+//    printf("item\tSTL:");   scanf("%d",&build->STL);
+//    printf("item\tREB:");   scanf("%d",&build->REB);
+//    printf("item\tFG:");    scanf("%f",&build->FG);
+//    getchar();
+//    printf("item\tPOS:");   scanf("%c",&build->POS);
+//    printf("item\tPTS:");   scanf("%d",&build->PTS);
+    printf("item\tplayer:"); fgets(replace,50,stdin);
+    for(int i=0;i<strlen(replace)-1;i++)
+        build->total_name[i]=replace[i];
+//    printf("item\tteam:");  scanf("%s", build->team);
 }
 
 /*check linked list*/
