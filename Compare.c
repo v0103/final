@@ -3,6 +3,7 @@
 #include <string.h>
 #include "basic.h"
 #include "Compare.h"
+#include "Search.h"
 
 void Compare(struct item *head,char player1[10],char player2[10])
 {
@@ -12,29 +13,11 @@ void Compare(struct item *head,char player1[10],char player2[10])
 	q = head;
 	char Team1[10];
 	char Team2[10];
-	while(p!=NULL){
-		if(strcmp(p->total_name,player1) == 0){
-			printf("%s\n",p->team);
-		}
-		else if (p == NULL) {
-			printf("We can't find %s in this list.\n",player1);
-			val = 1;
-		}
-		p=p->next;
-	}
-	printf("Which team data do you want to know for %s? ",p->total_name);
+	Search(head,player1);
+	printf("Which team data do you want to know for %s? ",player1);
 	scanf("%s",Team1);
-	while(q!=NULL){
-		if(strcmp(q->total_name,player2) == 0){
-			printf("%s\n",q->team);
-		}
-		else if (q == NULL) {
-			printf("We can't find %s in this list.\n",player2);
-			val = 1;
-		}
-		q=q->next;
-	}
-	printf("Which team data do you want to know for %s? ",q->total_name);
+	Search(head,player2);
+	printf("Which team data do you want to know for %s? ",player2);
 	scanf("%s",Team2);
 	p = head;
 	q = head;
