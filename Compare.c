@@ -5,23 +5,26 @@
 #include "Compare.h"
 #include "Search.h"
 
-void Compare(struct item *head,char player1[10],char player2[10])
+void Compare(struct item *head, char *player1, char *player2)
 {
 	struct item *p,*q;
+	p=malloc(sizeof(struct item));
+	q=malloc(sizeof(struct item));
 	int val = 0;
 	p = head;
 	q = head;
 	char Team1[10];
 	char Team2[10];
-
-	Search(&head,"Name",player1);
-	//Traverse(&head);
-	printf("Which team data do you want to know for %s?:",player1);
+    if (head == NULL) {  // check if the list is empty
+        printf("the list is empty.\n");
+        return;
+    }
+    Search(&head, "NAME", player1);
+	printf("Which team data do you want to know for %s? :",player1);
 	scanf("%s",Team1);
 
-	Search(&head,"Name",player2);
-	//Traverse(&head);
-	printf("Which team data do you want to know for %s?:",player2);
+	Search(&head, "NAME", player2);
+	printf("Which team data do you want to know for %s? :",player2);
 	scanf("%s",Team2);
 
 	while (strcmp(p->total_name,player1) != 0 && strcmp(p->team,Team1) != 0 && p != NULL) {
