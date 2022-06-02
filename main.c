@@ -10,7 +10,7 @@
 #include "Sort.h"
 #include "Traverse.h"
 #include "FILEIO.h"
-#define FILE_NAME "nba.txt" //move to basic.h?
+#define FILE_NAME "C:\\Users\\AVEN\\Desktop\\final-main\\nba.txt" //move to basic.h?
 void datum_input();
 void _print();
 
@@ -63,6 +63,8 @@ int main()
     strcpy(test_item->team, "NOP");
     test_item->next = NULL;
     //
+    strcpy(manual_item->total_name,"0");
+    strcpy(manual_item->team,"0");
     manual_item->next=NULL;
     //initiation
     printf("***Program Start!***\n");
@@ -85,16 +87,16 @@ int main()
                 Add(list, add_item);
             else if(input == 2){
                 printf("input a structure data for use.\n");
-                datum_input(manual_item);
-                printf("Add test\n");
+                getchar(); datum_input(manual_item);
+                //printf("Add test\n");
                 Add(list, manual_item);
             }
             else{
                 printf("wrong input option\n");
                 continue;
             }
-            printf("Traverse test\n");
-            Traverse(&list);
+            //printf("Traverse test\n");
+            //Traverse(&list);
         }
         else if(option == 2)
         {
@@ -111,7 +113,7 @@ int main()
                 printf("wrong input option\n");
                 continue;
             }
-            Traverse(&list);
+            //Traverse(&list);
         }
         else if(option == 3)
         {
@@ -136,11 +138,15 @@ int main()
         }
         else if(option == 4)
         {
-            char post[10],actual[50];
+            char post[10]={"0"},actual[50]={"0"},replace[50]={"0"};
             printf("input item NAME/TEAM/POS:");
             scanf("%s", post);
             printf("input actual name/team/pos:");
-            scanf("%s", actual);
+            //scanf("%s", actual);
+            getchar(); fgets(replace,50,stdin);
+            for(int i=0;i<strlen(replace)-1;i++)
+                actual[i]=replace[i];
+            //printf("%s",actual);
             Search(&list, post, actual);
         }
         else if(option == 5)
@@ -149,7 +155,7 @@ int main()
             printf("input AST/BLK/STL/REB/FG/PTS:");
             scanf("%s", cmp_data);
             //Sort_ascending(list, cmp_data);//too long?
-            Traverse(&list);
+            //Traverse(&list);
         }
         else if(option == 6)
         {
@@ -157,7 +163,7 @@ int main()
             printf("input AST/BLK/STL/REB/FG:");
             scanf("%s", cmp_data);
             //Sort_descending(list, cmp_data);//too long?
-            Traverse(&list);
+            //Traverse(&list);
         }
         else if(option == 7)
         {
