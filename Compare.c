@@ -13,10 +13,10 @@ void Compare(struct item *head,char player1[20],char player2[20])
 	q = head;
 	char Team1[10];
 	char Team2[10];
-	Search(&head,"Name","player1");
+	Search(&head,"Name",player1[0]);
 	printf("Which team data do you want to know for %s? :",player1);
 	scanf("%s",Team1);
-	Search(&head,"Name","player2");
+	Search(&head,"Name",player2[0]);
 	printf("Which team data do you want to know for %s? :",player2);
 	scanf("%s",Team2);
 	while (strcmp(p->total_name,player1) != 0 && strcmp(p->team,Team1) != 0 && p != NULL) {
