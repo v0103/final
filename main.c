@@ -107,7 +107,7 @@ int main()
             else if(input == 2){
                 printf("input a structure data for use.\n");
                 getchar(); datum_input(manual_item);
-                Delete(list, manual_item);
+                Delete(list, manual_item->total_name);
             }
             else{
                 printf("wrong input option\n");
@@ -199,7 +199,7 @@ void datum_input(struct item *build)//build the target
     printf("item\tplayer:"); fgets(replace,50,stdin);
     for(int i=0;i<strlen(replace)-1;i++)
         build->total_name[i]=replace[i];
-//    printf("item\tteam:");  scanf("%s", build->team);
+    printf("item\tteam:");  scanf("%s", build->team);
 }
 
 /*check linked list*/

@@ -3,7 +3,7 @@
 #include <string.h>
 #include "basic.h"
 #include "Delete.h"
-#include "S.h"
+#include "Search.h"
 
 void Delete(struct item *head, char *Name) {
     /*
@@ -17,14 +17,15 @@ void Delete(struct item *head, char *Name) {
         printf("the list is empty.\n");
         return;
     }
-    Search(&list, "NAME", Name);      //Firstly print the same names in whole teams
-    scanf("%s\n", Team);                     //Then enter  the target team
+    Search(&head, "NAME", Name);      //Firstly print the same names in whole teams
+    printf("which team :");
+    scanf("%s", Team);                     //Then enter  the target team
     if (strcmp(Name, origin->total_name)== 0 && strcmp(Team, origin->team)== 0) {   //delete the first one
 	head=head->next;
 	return;
     }
     for (head=origin; head != NULL; head = head->next) {          //if the item is already in the database.
-        if (strcmp(Name, head->next->total_name)== 0 && strcmp(Team, head->next->team)== 0) {  //stop at the previous one & target is next one.       
+        if (strcmp(Name, head->next->total_name)== 0 && strcmp(Team, head->next->team)== 0) {  //stop at the previous one & target is next one.
             struct item *temp;
 	    if (head->next->next!=NULL){   //delete the middle one
 		temp=head->next->next;
