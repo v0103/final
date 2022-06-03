@@ -30,7 +30,15 @@ void Compare(struct item *head, char *player1, char *player2)
 
             temp = temp->next;
     	}
- 
+ 	if(search1 != 0){
+		printf("Which team data do you want to know for %s? :",player1);
+		scanf("%s",Team1);
+	}	
+	else{
+		val = 1;
+    		printf("Can not find %s in this list.\n",player1);
+    		printf("Please input correct player name.\n");
+	}
 	temp = head;
 	//Search(&head, "NAME", player2);
 	while(temp != NULL){
@@ -43,30 +51,15 @@ void Compare(struct item *head, char *player1, char *player2)
 
             temp = temp->next;
     	}
-    	
-    	if(search1 != 0 && search2 != 0){
-    		printf("Which team data do you want to know for %s? :",player1);
-		scanf("%s",Team1);
-		
+    	if(search2 != 0){
 		printf("Which team data do you want to know for %s? :",player2);
     		scanf("%s",Team2);
-    	}
-    	else if(search1 != 0 && search2 == 0){
-    		val = 1;
+	}
+	else{
+		val = 1;
     		printf("Can not find %s in this list.\n",player2);
     		printf("Please input correct player name.\n");
-    	}
-    	else if(search1 == 0 && search2 != 0){
-    		val = 1;
-    		printf("Can not find %s in this list.\n",player1);
-    		printf("Please input correct player name.\n");
-    	}
-    	else{
-    		val = 1;
-    		printf("Can not find %s in this list.\n",player1);
-    		printf("Can not find %s in this list.\n",player2);
-    		printf("Please input correct player name.\n");
-    	}
+	}
 	
 	if(val == 1){
 		printf("\n");
