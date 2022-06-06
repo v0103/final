@@ -10,6 +10,7 @@
 #include "Sort.h"
 #include "Traverse.h"
 #include "FILEIO.h"
+#include "Bestplayer.h"
 #define FILE_NAME "nba.txt" //move to basic.h?
 void datum_input();
 void _print();
@@ -73,7 +74,7 @@ int main()
     //function
     while(1)
     {
-        printf("[1]Add [2]Delete [3]Compare [4]Search [5]Sort(ascend) [6]Sort(descend) [7]Traverse [8]exit:");
+        printf("[1]Add [2]Delete [3]Compare [4]Search [5]Sort(ascend) [6]Sort(descend) [7]Traverse [8]exit [9]Bestplayer:");
         scanf("%d", &option);
         if(option == 8){
             printf("exit!\n");
@@ -168,6 +169,10 @@ int main()
         else if(option == 7)
         {
             Traverse(&list);
+        }
+        else if(option == 9)
+        {
+            best_player(&list);
         }
         else{
                 printf("wrong function option\n");
