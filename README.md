@@ -1,3 +1,6 @@
 原:
-Player	Pos	Tm	FG%	REB	AST	STL	BLK	PTS
-char char char float
+Player Tm pos	REB	AST	STL	BLK	PTS FG%
+%s     %s %c  %d  %d  %d  %d  %d  %f
+
+改:
+
