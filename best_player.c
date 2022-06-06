@@ -14,5 +14,5 @@ void best_player(struct item *head)
     }
     p = p->next;
   }
-  printf("SEASON POINT Leader %s %s\n",temp->total_name,temp->team);
+  printf("SEASON POINT Leader %s %s(%d)\n",temp->total_name,temp->team,temp->PTS);
 }
