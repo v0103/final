@@ -172,7 +172,10 @@ int main()
         }
         else if(option == 9)
         {
-            best_player(&list);
+            char cmp_data[10];
+            printf("input AST/BLK/STL/REB/PTS/3PT:");
+            scanf("%s", cmp_data);
+            best_player(list,cmp_data);
         }
         else{
                 printf("wrong function option\n");
