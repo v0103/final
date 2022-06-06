@@ -9,6 +9,7 @@
 #include "Search.h"
 #include "Sort.h"
 #include "Traverse.h"
+#include "Stats_leader.h"
 #include "FILEIO.h"
 #define FILE_NAME "nba.txt" //move to basic.h?
 void datum_input();
@@ -167,7 +168,14 @@ int main()
         }
         else if(option == 7)
         {
-            Traverse(&list);
+            int choose = 0;
+            printf("[1]print all [2]print stats leader:");
+            scanf("%d", &choose);
+            
+            if (choose == 1)
+                Traverse(&list);
+            else
+                Stats_leader(&list);
         }
         else{
                 printf("wrong function option\n");
