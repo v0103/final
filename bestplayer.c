@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "basic.h"
-#include "best_player.h"
+#include "bestplayer.h"
 
 void best_player(struct item *head)
 {
@@ -15,4 +15,13 @@ void best_player(struct item *head)
     p = p->next;
   }
   printf("SEASON POINT Leader %s %s(%d)\n",temp->total_name,temp->team,temp->PTS);
+  p = head;
+  temp = NULL;
+  while(p!=NULL){
+    if(p->BLK < p->next->BLK){
+      temp = p->next;
+    }
+    p = p->next;
+  }
+  printf("SEASON BLOCK Leader %s %s(%d)\n",temp->total_name,temp->team,temp->BLK);
 }
