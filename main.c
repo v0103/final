@@ -161,7 +161,7 @@ int main()
         else if(option == 6)
         {
             char cmp_data[10];
-            printf("input AST/BLK/STL/REB/FG:");
+            printf("input AST/BLK/STL/REB/FG/PTS:");
             scanf("%s", cmp_data);
             Sort_descending(list, cmp_data);//too long?
             //Traverse(&list);
