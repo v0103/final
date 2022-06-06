@@ -1,7 +1,7 @@
 #ifndef BESTPLAYER_H
 #define BESTPLAYER_H
   /************************************************************************
-   * Traverse: Print all items in the database in a specific format.      *
+   * best_player: Print season best player(point,block,steal,3p,assist)   *
    ************************************************************************/
   void best_player();
 #endif
