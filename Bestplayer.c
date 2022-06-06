@@ -1,4 +1,3 @@
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -47,7 +46,7 @@ void best_player(struct item *head,char type[10])
   			val = 1;
   		}
   	}
-  	printf("SEASON BLOCK Leader %s (%s) %d\n",p->total_name,p->team,p->BLK);
+  	printf("SEASON BLOCK Leader: %s (%s) %d\n",p->total_name,p->team,p->BLK);
   }
   else if(strcmp(type,"AST")==0){
   	max = p->AST;
@@ -66,7 +65,7 @@ void best_player(struct item *head,char type[10])
   			val = 1;
   		}
   	}
-  	printf("SEASON ASSIST Leader %s (%s) %d\n",p->total_name,p->team,p->AST);
+  	printf("SEASON ASSIST Leader: %s (%s) %d\n",p->total_name,p->team,p->AST);
   }
   else if(strcmp(type,"STL")==0){
   	max = p->STL;
@@ -85,7 +84,7 @@ void best_player(struct item *head,char type[10])
   			val = 1;
   		}
   	}
-  	printf("SEASON ASSIST Leader %s (%s) %d\n",p->total_name,p->team,p->STL);
+  	printf("SEASON STEAL Leader: %s (%s) %d\n",p->total_name,p->team,p->STL);
   }
   else if(strcmp(type,"REB")==0){
   	max = p->REB;
@@ -104,7 +103,7 @@ void best_player(struct item *head,char type[10])
   			val = 1;
   		}
   	}
-  	printf("SEASON ASSIST Leader %s (%s) %d\n",p->total_name,p->team,p->REB);
+  	printf("SEASON REBOUND Leader: %s (%s) %d\n",p->total_name,p->team,p->REB);
   }
   
   
