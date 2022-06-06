@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "basic.h"
-#include "bestplayer.h"
+#include "Bestplayer.h"
 
 void best_player(struct item *head)
 {
