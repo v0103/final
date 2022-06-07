@@ -49,8 +49,16 @@ void Personal_analysis(struct item *head, char *Name){
         int opt=0;
         printf("input AST/BLK/STL/REB/FG:");
         scanf("%s", cmp_data);
+        while(strcmp(cmp_data,"PTS")&&strcmp(cmp_data,"AST")&&strcmp(cmp_data,"BLK")&&strcmp(cmp_data,"STL")&&strcmp(cmp_data,"REB")&&strcmp(cmp_data,"FG")){
+            printf("input PTS/AST/BLK/STL/REB/FG:");
+            scanf("%s", cmp_data);
+        }
         printf("[1]Sort(ascend) [2]Sort(descend):");
         scanf("%d", &opt);
+        while(opt!=1&&opt!=2){
+            printf("[1]Sort(ascend) [2]Sort(descend):");
+            scanf("%d", &opt);
+        }
         if(opt==1){
             Sort_ascending(&personal_datas, cmp_data);
             Traverse(&personal_datas);
