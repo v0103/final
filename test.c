@@ -8,15 +8,14 @@ print_hello (GtkWidget *widget,
 }
 
 static void
-move_ADD (GtkApplication *app,
-          gpointer        user_data)
+move_ADD (GtkWidget *widget,
+             gpointer   data)
 {
   GtkWidget *window;
-  window = gtk_application_window_new (app);
-  gtk_window_set_title (GTK_WINDOW (window), "ADD NBA PLAYERS");
-  gtk_window_set_default_size (GTK_WINDOW (window), 500, 200);
-  gtk_window_set_position(GTK_WINDOW (window), GTK_WIN_POS_CENTER);
-  gtk_window_set_resizable(GTK_WINDOW (window), FALSE);
+
+window=gtk_window_new(GTK_WINDOW_TOPLEVEL);
+
+gtk_widget_show_all(window);
 }
 
 static void
