@@ -25,7 +25,7 @@ int main()
 
     /*file in*/
     FILE *fp;
-    fp = fopen(FILE_NAME, "r+"); 
+    fp = fopen(FILE_NAME, "+"); 
     if (fp == NULL)
     {
         printf("Can't open %s\n", FILE_NAME);
