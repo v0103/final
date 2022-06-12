@@ -11,6 +11,7 @@ void print_AST(struct item **);
 void print_STL(struct item **);
 void print_BLK(struct item **);
 void print_FG(struct item **);
+void best_player(struct item **);
 
 void Stats_leader(struct item **HEAD) {
     print_PTS(HEAD);
