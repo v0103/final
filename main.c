@@ -24,7 +24,7 @@ int main()
 
     /*file in*/
     FILE *fp;
-    fp = fopen(FILE_NAME, "r+"); //open file ,r,w,a which one?
+    fp = fopen(FILE_NAME, "wr");
     if (fp == NULL)
     {
         printf("Can't open %s\n", FILE_NAME);
@@ -182,6 +182,7 @@ int main()
             continue;
         }
     }
+    _update_file(fp,manual_item);
     printf("***Program Termination.***\n");
     fclose(fp); // close file
     free(add_item);
