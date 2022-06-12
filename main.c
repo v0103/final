@@ -2,7 +2,6 @@
 #include <stdlib.h>
 #include <string.h>
 #include "basic.h"
-//#include "function.h"
 #include "Add.h"
 #include "Delete.h"
 #include "Compare.h"
