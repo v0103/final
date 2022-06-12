@@ -19,7 +19,7 @@ void Stats_leader(struct item **HEAD) {
     print_STL(HEAD);
     print_BLK(HEAD);
     print_FG(HEAD);
-    
+    best_player(HEAD);
 }
 
 void print_PTS(struct item **HEAD) {
@@ -106,10 +106,10 @@ void print_FG(struct item **HEAD) {
     }
 }
 
-void best_player(struct item *head)
+void best_player(struct item **head)
 {
   
-  struct item *p=head;
+  struct item *p=*head;
   int max;
   int val = 0;
   
@@ -120,7 +120,7 @@ void best_player(struct item *head)
     	}
     	p = p->next;
   }
-  p = head;
+  p = *head;
   while(p!=NULL && val != 1){
   	if(p->PTS != max){
   		p = p->next;
@@ -131,7 +131,7 @@ void best_player(struct item *head)
   }
   printf("SEASON POINT Leader: %s (%s) %d\n",p->total_name,p->team,p->PTS);
   
-  p = head;
+  p = *head;
   val = 0;
   max = p->BLK;
   while(p!=NULL){
@@ -140,7 +140,7 @@ void best_player(struct item *head)
     	}
     	p = p->next;
   }
-  p = head;
+  p = *head;
   while(p!=NULL && val != 1){
   	if(p->BLK != max){
   		p = p->next;
@@ -151,7 +151,7 @@ void best_player(struct item *head)
   }
   printf("SEASON BLOCK Leader: %s (%s) %d\n",p->total_name,p->team,p->BLK);
   
-  p = head;
+  p = *head;
   val = 0;
   max = p->AST;
   while(p!=NULL){
@@ -160,7 +160,7 @@ void best_player(struct item *head)
     	}
     	p = p->next;
   }
-  p = head;
+  p = *head;
   while(p!=NULL && val != 1){
   	if(p->AST != max){
   		p = p->next;
@@ -171,7 +171,7 @@ void best_player(struct item *head)
   }
   printf("SEASON ASSIST Leader: %s (%s) %d\n",p->total_name,p->team,p->AST);
   
-  p = head;
+  p = *head;
   val = 0;
   max = p->STL;
   while(p!=NULL){
@@ -180,7 +180,7 @@ void best_player(struct item *head)
     	}
     	p = p->next;
   }
-  p = head;
+  p = *head;
   while(p!=NULL && val != 1){
   	if(p->STL != max){
   		p = p->next;
@@ -191,7 +191,7 @@ void best_player(struct item *head)
   }
   printf("SEASON STEAL Leader: %s (%s) %d\n",p->total_name,p->team,p->STL);
   
-  p = head;
+  p = *head;
   val = 0;
   max = p->REB;
   while(p!=NULL){
@@ -200,7 +200,7 @@ void best_player(struct item *head)
     	}
     	p = p->next;
   }
-  p = head;
+  p = *head;
   while(p!=NULL && val != 1){
   	if(p->REB != max){
   		p = p->next;
