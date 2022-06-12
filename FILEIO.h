@@ -3,7 +3,7 @@
   /************************************************************************
    * Traverse: Print all items in the database in a specific format.      *
    ************************************************************************/
-  //void _READ();
-  struct item* _BUILD(FILE *fp);
-  //void _print(struct item *list);
+
+  struct item* _BUILD();
+  void _update_file();
 #endif
