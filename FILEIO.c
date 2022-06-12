@@ -36,4 +36,17 @@ struct item* _BUILD(FILE *fp){
     }
     return list;
 }
+void _update_file(FILE *fp,struct item **HEAD) {
+    struct item *temp = *HEAD;
 
+    if (temp == NULL) {
+        printf("the list is null\n");
+        return;
+    }
+
+    while (temp != NULL) {
+        fprintf(fp,"%s\t%s\t%c\t%d\t%d\t%d\t%d\t%d\t%f\n", temp->total_name, temp->team, temp->POS, temp->PTS, temp->REB, temp->AST, temp->STL, temp->BLK, temp->FG);
+
+        temp = temp->next;
+    }
+}
