@@ -43,10 +43,12 @@ void _update_file(FILE *fp,struct item **HEAD) {
         printf("the list is null\n");
         return;
     }
-
+    //int i=0;
     while (temp != NULL) {
-        fprintf(fp,"%s\t%s\t%c\t%d\t%d\t%d\t%d\t%d\t%f\n", temp->total_name, temp->team, temp->POS, temp->PTS, temp->REB, temp->AST, temp->STL, temp->BLK, temp->FG);
-
+    	//i++;
+        fprintf(fp,"%s\t%c\t%s\t%f\t%d\t%d\t%d\t%d\t%d\n", temp->total_name, temp->POS, temp->team, temp->FG, temp->REB, temp->AST, temp->STL, temp->BLK, temp->PTS);
+        
         temp = temp->next;
     }
+    //printf("%d\n",i);
 }
