@@ -4,45 +4,6 @@
 #include "basic.h"
 #include "FILEIO.h"
 
-/*struct item{
-        int AST;//assist
-        int BLK;//block
-        int STL;//steal
-        int REB;//rebound(board)
-        float FG;//field goal
-        char POS;//position
-        int PTS;//total point
-        char total_name[50];//total name
-        char team[10];
-        struct item *next;
-};
-
-//void _READ();
-struct item* _BUILD(FILE *fp);
-void _print(struct item *list);*/
-
-//應該只要void _READ();
-/*int main(){
-
-    _READ();
-
-    return 0;
-}*/
-
-/*read and save data*/
-/*可以考慮把READ函式解放到main*/
-/*void _READ(){
-    FILE *fp;
-    fp = fopen(FILE_NAME, "r"); //open file ,r,w,a which one?
-    if (fp == NULL) {
-        printf("Can't open %s\n", FILE_NAME);
-        exit(EXIT_FAILURE);
-    }
-    struct item *list;
-    list=_BUILD(fp);
-    //_print(list);
-    fclose(fp); // close file
-}*/
 
 /*build linked list*/
 struct item* _BUILD(FILE *fp){
@@ -76,11 +37,3 @@ struct item* _BUILD(FILE *fp){
     return list;
 }
 
-/*check linked list*/
-/*void _print(struct item*list){
-    while(list!=NULL){
-        printf("%s %d\n", list->total_name, list->PTS);
-        list = list->next;
-    }
-
-}*/
