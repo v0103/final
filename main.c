@@ -109,7 +109,7 @@ int main()
 //            else if(input == 2){
                 printf("input a structure data for use.\n");
                 getchar(); datum_input(manual_item,1);
-                Delete(list, manual_item->total_name);
+                list=Delete(list, manual_item->total_name);
 //            }
 //            else{
 //                printf("wrong input option\n");
