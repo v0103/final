@@ -22,16 +22,17 @@ int main()
     test_item = malloc(sizeof(struct item));
     manual_item = malloc(sizeof(struct item));
 
-    /*file in*/
+    /*file read*/
     FILE *fp;
-    fp = fopen(FILE_NAME, "wr");
+    fp = fopen(FILE_NAME, "r");
     if (fp == NULL)
     {
         printf("Can't open %s\n", FILE_NAME);
         exit(EXIT_FAILURE);
     }
     list=_BUILD(fp);
-    /*file in*/
+    fclose(fp); // close file
+
 
 
     //struct *add_item;
@@ -182,9 +183,12 @@ int main()
             continue;
         }
     }
-    _update_file(fp,manual_item);
+    /*file write*/
+    FILE *fp_w;
+    fp_w = fopen(FILE_NAME, "w");
+    _update_file(fp_w,&list);
+    
     printf("***Program Termination.***\n");
-    fclose(fp); // close file
     free(add_item);
     free(test_item);
     free(manual_item);
