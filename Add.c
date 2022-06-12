@@ -17,7 +17,7 @@ void Add(struct item *head, struct item *new_member)
         printf("the list is empty.\n");
         return;
     }
-    for (head=origin; head != NULL; head = head->next) {          //if the item is already in the database.
+    for (head=origin; head != NULL; head = head->next && strcmp(new_member->team, head->team)== 0) {          //if the item is already in the database.
         if (strcmp(new_member->total_name, head->total_name)== 0) {
             head = origin;
             printf("the item is already in the database.\n");
