@@ -37,7 +37,7 @@ enter option 1~9 to execute the program
 
 8.Personal_analysis:Sort and Print the player in many teams.
 
-    input 8,then input player's name
+    input 8,then input player's name,then input item type,and then choose ascend or descend form for data
 
 9.Exit:terminate the program
 
